@@ -9,6 +9,8 @@ export PYENV_ROOT=$HOME/.pyenv
 export RBENV_ROOT=$HOME/.rbenv
 export PYTHON_PATH=/usr/local/Cellar/python/2.7.6/bin
 export PGDATA=/usr/local/var/postgres
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 
 # パスの設定
@@ -23,8 +25,10 @@ typeset -U path
 path=(# システム用
     /usr/bin(N-/)
     /bin(N-/)
+    /sbin(N-/)
     /usr/texbin
     /usr/local/sbin
+
     # 自分用（--prefix=$HOME/localでインストールしたもの）
     $HOME/local/bin(N-/)
     # 自分用（gem install --user-installでインストールしたもの）
@@ -52,6 +56,9 @@ path=(# システム用
     #ANDROID環境
     $ANDROID_HOME/tools(N-/)
     $ANDROID_NDK_HOME(N-/)
+
+    # Emacs
+    /usr/local/Cellar/emacs/24.3/bin(N-/)
     # Cygwin用
     /cygdrive/c/meadow/bin(N-/)
     # システム用
