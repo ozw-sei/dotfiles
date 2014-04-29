@@ -1,4 +1,4 @@
-;; emacs 23以前の場合はDefaultディレクトリをっっっっｆ
+;; emacs 23以前の場合はDefaultディレクトリをつくれ
 (when (< emacs-major-version 23)
   (defvar user-emacs-directory "~/.emacs.d/"))
 
@@ -92,7 +92,9 @@
   (define-key global-map (kbd "M-y") 'helm-show-kill-ring) 
   (define-key global-map (kbd "M-x") 'helm-M-x)
   (define-key global-map (kbd "C-x C-r") 'helm-recentf)
-  (define-key global-map (kbd "M-p") 'helm-project))
+  (define-key global-map (kbd "M-p") 'helm-project)
+  (when (require 'helm-project)
+    (define-key global-map (kbd "M-t") 'helm-project-grep))
 
 ;;; popwin.el
 (el-get 'sync 'popwin)
@@ -130,8 +132,7 @@
   (global-set-key (kbd "M-o") 'helm-c-moccur-occur-by-moccur)
   (global-set-key (kbd "C-M-o") 'helm-c-moccur-dmoccur)
   (global-set-key (kbd "C-M-s") 'helm-c-moccur-isearch-forward)
-  (global-set-key (kbd "C-M-r
-") 'helm-c-moccur-isearch-backward))
+  (global-set-key (kbd "C-M-r") 'helm-c-moccur-isearch-backward))
 
 ;; python-mode
 ;;(require 'pyton-mode)
@@ -151,7 +152,7 @@
 
 ;; (require 'wgrep nil t)
 
-;; (require 'jinja2-mode nil t)
+(require 'jinja2-mode nil t)
 
 ;; 現在行をハイライト
 (global-hl-line-mode 0)
@@ -167,6 +168,52 @@
 (require 'flymake-coffee)
 (require 'js3-mode)
 (require 'cl)
-(when (require 'helm-project)
-  (global-set-key (kbd "C-M-p") 'helm-project)
-  (global-set-key (kbd "M-t") 'helm-project-grep))
+
+;; sequential-command settings
+(require 'sequential-command-config)
+(global-set-key "\C-a" 'seq-home)
+(global-set-key "\C-e" 'seq-end)
+(sequential-command-setup-keys)
+
+;;;;------------ Helm git grep ------------
+(require 'cl)
+(require 'helm-config)
+(require 'helm-files)
+
+;; List files in git repos
+(defun helm-c-sources-git-project-for (pwd)
+  (loop for elt in
+	'(("Modified files" . "--modified")
+	  ("Untracked files" . "--others --exclude-standard")
+	  ("All controlled files in this project" . nil))
+	for title  = (format "%s (%s)" (car elt) pwd)
+	for option = (cdr elt)
+	for cmd    = (format "git ls-files %s" (or option ""))
+	collect
+	`((name . ,title)
+	  (init . (lambda ()
+		    (unless (and (not ,option) (helm-candidate-buffer))
+		      (with-current-buffer (helm-candidate-buffer 'global)
+			(call-process-shell-command ,cmd nil t nil)))))
+	  (candidates-in-buffer)
+	  (type . file))))
+
+(defun helm-git-project-topdir ()
+  (file-name-as-directory
+   (replace-regexp-in-string
+    "\n" ""
+    (shell-command-to-string "git rev-parse --show-toplevel"))))
+
+(defun helm-git-project ()
+  (interactive)
+  (let ((topdir (helm-git-project-topdir)))
+    (unless (file-directory-p topdir)
+      (error "I'm not in Git Repository!!"))
+    (let* ((default-directory topdir)
+	   (sources (helm-c-sources-git-project-for default-directory)))
+      (helm-other-buffer sources
+			 (format "*helm git project in %s*" default-directory)))))
+(define-key global-map (kbd "M-p") 'helm-git-project)
+
+(when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
