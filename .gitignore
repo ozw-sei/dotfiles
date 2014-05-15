@@ -1,7 +1,5 @@
-*~
-.*~
-
-/emacs.d/*
-!/emacs.d/init.el
-!/emacs.d/conf/*
-/emacs.d/conf/*~
+emacs.d/el-get
+emacs.d/elpa
+emacs.d/undohist/
+emacs.d/auto-save-list/
+emacs.d/ac-comphist.dat
