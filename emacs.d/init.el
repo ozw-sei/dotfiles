@@ -80,10 +80,12 @@
 (require 'php-mode)
 
 ;; helm
+(el-get 'sync 'helm)
 (when (require 'helm-config)
   (helm-mode t)
   (setq helm-idle-delay 0.3))
 
+(el-get 'sync 'helm-descbinds)
 (when (require 'helm-descbinds)
   ;; describe-bindings をhelmに変更
   (helm-descbinds-mode t)
@@ -91,10 +93,7 @@
   (define-key global-map (kbd "C-x l") 'helm-find-files)
   (define-key global-map (kbd "M-y") 'helm-show-kill-ring) 
   (define-key global-map (kbd "M-x") 'helm-M-x)
-  (define-key global-map (kbd "C-x C-r") 'helm-recentf)
-  (define-key global-map (kbd "M-p") 'helm-project)
-  (when (require 'helm-project)
-    (define-key global-map (kbd "M-t") 'helm-project-grep))
+  (define-key global-map (kbd "C-x C-r") 'helm-recentf))
 
 ;;; popwin.el
 (el-get 'sync 'popwin)
@@ -138,8 +137,9 @@
 ;;(require 'pyton-mode)
 
 ;; git-gutter
-(when (require 'git-gutter+)
-  (global-git-gutter+-mode t))
+(el-get 'sync 'git-gutter)
+(when (require 'git-gutter)
+  (global-git-gutter-mode t))
 
 ;; theme
 
@@ -163,20 +163,23 @@
 
 ;;; 対応する括弧を表示させる
 (show-paren-mode 1)
+(el-get 'sync 'scala-mode2)
 (require 'scala-mode2)
+(el-get 'sync 'coffee-mode)
 (require 'coffee-mode)
+(el-get 'sync 'flymake-coffee)
 (require 'flymake-coffee)
+(el-get 'sync 'js3-mode)
 (require 'js3-mode)
 (require 'cl)
 
 ;; sequential-command settings
-(require 'sequential-command-config)
-(global-set-key "\C-a" 'seq-home)
-(global-set-key "\C-e" 'seq-end)
-(sequential-command-setup-keys)
+;; (require 'sequential-command-config)
+;; (global-set-key "\C-a" 'seq-home)
+;; (global-set-key "\C-e" 'seq-end)
+;; (sequential-command-setup-keys)
 
 ;;;;------------ Helm git grep ------------
-(require 'cl)
 (require 'helm-config)
 (require 'helm-files)
 
