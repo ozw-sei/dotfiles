@@ -1,3 +1,6 @@
 [submodule "maximum-awesome-mac"]
-	path = maximum-awesome-mac
+	path = zsh/maximum-awesome-mac
 	url = https://github.com/square/maximum-awesome.git
+[submodule "emacs.d/public_repos/emacs-color-theme-solarized"]
+	path = emacs.d/public_repos/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
