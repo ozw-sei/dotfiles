@@ -33,7 +33,11 @@
   (setq file-name-coding-system 'utf-8-hfs)
   (setq locale-coding-system 'utf-8-hfs))
 
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -93,8 +97,9 @@
   (define-key global-map (kbd "M-x") 'helm-M-x)
   (define-key global-map (kbd "C-x C-r") 'helm-recentf)
   (define-key global-map (kbd "M-p") 'helm-project)
-  (when (require 'helm-project)
-    (define-key global-map (kbd "M-t") 'helm-project-grep))
+  (require 'helm-ls-git)
+  (when (require 'helm-git-grep)
+    (define-key global-map (kbd "M-t") 'helm-git-grep)))
 
 ;;; popwin.el
 (el-get 'sync 'popwin)
@@ -102,8 +107,7 @@
   (setq helm-samewindow nil)
   (setq display-buffer-function 'popwin:display-buffer)
   (setq popwin:special-display-config '(("*compilation*" :noselect t)
-					("helcm" :regexp t :height 0.4)
-					)))
+					("helcm" :regexp t :height 0.4))))
 
 ;; auto-complete
 (el-get 'sync 'auto-complete)
@@ -134,29 +138,21 @@
   (global-set-key (kbd "C-M-s") 'helm-c-moccur-isearch-forward)
   (global-set-key (kbd "C-M-r") 'helm-c-moccur-isearch-backward))
 
-;; python-mode
-;;(require 'pyton-mode)
 
 ;; git-gutter
-(when (require 'git-gutter+)
-  (global-git-gutter+-mode t))
-
-;; theme
-
-;;(load-theme 'sanityinc-solarized-dark t)
+(when (require 'git-gutter)
+  (global-git-gutter-mode t))
 
 ;; paredit
 ;; http://www.daregada.sakuraweb.com/paredit_tutorial_ja.html
 ;(el-get 'sync 'paredit)
-;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
 
 ;; (require 'wgrep nil t)
-
 (require 'jinja2-mode nil t)
 
 ;; 現在行をハイライト
 (global-hl-line-mode 0)
-
 
 ;;; ファイル内のカーソル位置を保存する
 (setq-default save-place t)
@@ -175,45 +171,33 @@
 (global-set-key "\C-e" 'seq-end)
 (sequential-command-setup-keys)
 
-;;;;------------ Helm git grep ------------
-(require 'cl)
-(require 'helm-config)
-(require 'helm-files)
-
-;; List files in git repos
-(defun helm-c-sources-git-project-for (pwd)
-  (loop for elt in
-	'(("Modified files" . "--modified")
-	  ("Untracked files" . "--others --exclude-standard")
-	  ("All controlled files in this project" . nil))
-	for title  = (format "%s (%s)" (car elt) pwd)
-	for option = (cdr elt)
-	for cmd    = (format "git ls-files %s" (or option ""))
-	collect
-	`((name . ,title)
-	  (init . (lambda ()
-		    (unless (and (not ,option) (helm-candidate-buffer))
-		      (with-current-buffer (helm-candidate-buffer 'global)
-			(call-process-shell-command ,cmd nil t nil)))))
-	  (candidates-in-buffer)
-	  (type . file))))
-
-(defun helm-git-project-topdir ()
-  (file-name-as-directory
-   (replace-regexp-in-string
-    "\n" ""
-    (shell-command-to-string "git rev-parse --show-toplevel"))))
-
-(defun helm-git-project ()
-  (interactive)
-  (let ((topdir (helm-git-project-topdir)))
-    (unless (file-directory-p topdir)
-      (error "I'm not in Git Repository!!"))
-    (let* ((default-directory topdir)
-	   (sources (helm-c-sources-git-project-for default-directory)))
-      (helm-other-buffer sources
-			 (format "*helm git project in %s*" default-directory)))))
-(define-key global-map (kbd "M-p") 'helm-git-project)
-
 (when (memq window-system '(mac ns))
     (exec-path-from-shell-initialize))
+
+(require 'yasnippet)
+(yas/global-mode 1)
+
+(add-hook 'python-mode-hook
+	  '(lambda()
+	     (setq indent-tabs-mode nil)
+	     (setq indent-level 4)
+	     (setq tab-width 4)))
+
+;; flymake+pyflakes+pep8
+; http://d.hatena.ne.jp/cou929_la/20110525/1306321857
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(when (load "flymake" t)
+    (defun flymake-pyflakes-init ()
+          (let* ((temp-file (flymake-init-create-temp-buffer-copy
+			     'flymake-create-temp-inplace))
+		 (local-file (file-relative-name
+			      temp-file
+			      (file-name-directory buffer-file-name))))
+	    (list (expand-file-name "~/bin/pycheckers")  (list local-file))))
+    (add-to-list 'flymake-allowed-file-name-masks
+		 '("\\.py\\'" flymake-pyflakes-init)))
+
+(load-library "flymake-cursor")
+(flymake-cursor-mode 1)
+(global-flycheck-mode 1)
+

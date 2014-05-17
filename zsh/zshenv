@@ -2,7 +2,6 @@
 export DEVELOP=$HOME/Documents/Develop
 export PROJECT=$DEVELOP/Project
 export SANDBOX=$DEVELOP/Sandbox
-
 export ANDROID_HOME=$DEVELOP/Lib/android-sdk/22.2.1/
 export ANDROID_NDK_HOME=$DEVELOP/Lib/android-ndk/android-ndk/9/
 export VIRTUALENV_USE_DITRIBUTE=true
@@ -52,7 +51,6 @@ path=(# システム用
     $RBENV_ROOT/bin(N-/)
     $PHPENV_ROOT/bin(N-/)
     $PLENV_ROOT/bin(N-/)
-    $SVM_ROOT/bin(N-/)
 
     #ANDROID環境
     $ANDROID_HOME/tools(N-/)
