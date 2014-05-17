@@ -84,10 +84,12 @@
 (require 'php-mode)
 
 ;; helm
+(el-get 'sync 'helm)
 (when (require 'helm-config)
   (helm-mode t)
   (setq helm-idle-delay 0.3))
 
+(el-get 'sync 'helm-descbinds)
 (when (require 'helm-descbinds)
   ;; describe-bindings をhelmに変更
   (helm-descbinds-mode t)
@@ -97,9 +99,9 @@
   (define-key global-map (kbd "M-x") 'helm-M-x)
   (define-key global-map (kbd "C-x C-r") 'helm-recentf)
   (define-key global-map (kbd "M-p") 'helm-project)
-  (require 'helm-ls-git)
   (when (require 'helm-git-grep)
     (define-key global-map (kbd "M-t") 'helm-git-grep)))
+
 
 ;;; popwin.el
 (el-get 'sync 'popwin)
@@ -140,8 +142,18 @@
 
 
 ;; git-gutter
+<<<<<<< HEAD
 (when (require 'git-gutter)
   (global-git-gutter-mode t))
+=======
+(el-get 'sync 'git-gutter)
+(when (require 'git-gutter)
+  (global-git-gutter-mode t))
+
+;; theme
+
+;;(load-theme 'sanityinc-solarized-dark t)
+>>>>>>> 0b3e47eed9e4f7761448c96251e032b4c84d650a
 
 ;; paredit
 ;; http://www.daregada.sakuraweb.com/paredit_tutorial_ja.html
@@ -159,17 +171,60 @@
 
 ;;; 対応する括弧を表示させる
 (show-paren-mode 1)
+(el-get 'sync 'scala-mode2)
 (require 'scala-mode2)
+(el-get 'sync 'coffee-mode)
 (require 'coffee-mode)
+(el-get 'sync 'flymake-coffee)
 (require 'flymake-coffee)
+(el-get 'sync 'js3-mode)
 (require 'js3-mode)
 (require 'cl)
 
 ;; sequential-command settings
-(require 'sequential-command-config)
-(global-set-key "\C-a" 'seq-home)
-(global-set-key "\C-e" 'seq-end)
-(sequential-command-setup-keys)
+;; (require 'sequential-command-config)
+;; (global-set-key "\C-a" 'seq-home)
+;; (global-set-key "\C-e" 'seq-end)
+;; (sequential-command-setup-keys)
+
+;;;------------ Helm git grep ------------
+(require 'helm-config)
+(require 'helm-files)
+
+;; List files in git repos
+(defun helm-c-sources-git-project-for (pwd)
+  (loop for elt in
+	'(("Modified files" . "--modified")
+	  ("Untracked files" . "--others --exclude-standard")
+	  ("All controlled files in this project" . nil))
+	for title  = (format "%s (%s)" (car elt) pwd)
+	for option = (cdr elt)
+	for cmd    = (format "git ls-files %s" (or option ""))
+	collect
+	`((name . ,title)
+	  (init . (lambda ()
+		    (unless (and (not ,option) (helm-candidate-buffer))
+		      (with-current-buffer (helm-candidate-buffer 'global)
+			(call-process-shell-command ,cmd nil t nil)))))
+	  (candidates-in-buffer)
+	  (type . file))))
+
+(defun helm-git-project-topdir ()
+  (file-name-as-directory
+   (replace-regexp-in-string
+    "\n" ""
+    (shell-command-to-string "git rev-parse --show-toplevel"))))
+
+(defun helm-git-project ()
+  (interactive)
+  (let ((topdir (helm-git-project-topdir)))
+    (unless (file-directory-p topdir)
+      (error "I'm not in Git Repository!!"))
+    (let* ((default-directory topdir)
+	   (sources (helm-c-sources-git-project-for default-directory)))
+      (helm-other-buffer sources
+			 (format "*helm git project in %s*" default-directory)))))
+(define-key global-map (kbd "M-p") 'helm-git-project)
 
 (when (memq window-system '(mac ns))
     (exec-path-from-shell-initialize))

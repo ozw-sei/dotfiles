@@ -1,0 +1,3 @@
+[submodule "maximum-awesome-mac"]
+	path = maximum-awesome-mac
+	url = https://github.com/square/maximum-awesome.git
