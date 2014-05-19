@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("tmux.conf"
+ (filename . "~/dotfiles/maximum-awesome-mac/tmux.conf")
+ (front-context-string . "# use C-a, since")
+ (rear-context-string)
+ (position . 1))
+("zshenv"
+ (filename . "~/dotfiles/zsh/zshenv")
+ (front-context-string . "# -*- sh -*-\nexp")
+ (rear-context-string)
+ (position . 1))
+("zshrc"
+ (filename . "~/dotfiles/zsh/zshrc")
+ (front-context-string . "# キーバインド\n## Emac")
+ (rear-context-string)
+ (position . 15))
+("init.el"
+ (filename . "~/dotfiles/emacs.d/init.el")
+ (front-context-string . ";; emacs 23以前の場合")
+ (rear-context-string)
+ (position . 1))
+)

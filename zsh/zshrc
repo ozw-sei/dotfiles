@@ -427,3 +427,8 @@ fi
 # .xxenv
 eval "$(pyenv init -)"
 
+## z config
+# _Z_CMD=j
+# precmd() {
+#     _z --add "$(pwd -P)"
+# }
