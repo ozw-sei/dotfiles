@@ -28,6 +28,7 @@ path=(# システム用
     /sbin(N-/)
     /usr/texbin
     /usr/local/sbin
+    /usr/sbin
 
     # 自分用（--prefix=$HOME/localでインストールしたもの）
     $HOME/local/bin(N-/)
