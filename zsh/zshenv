@@ -30,6 +30,10 @@ path=(# システム用
     /usr/local/sbin
     /usr/sbin
 
+    # cocos2dx
+    $HOME/anaconda/bin(N-/)
+    $COCOS_CONSOLE_ROOT(N-/)
+
     # 自分用（--prefix=$HOME/localでインストールしたもの）
     $HOME/local/bin(N-/)
     # 自分用（gem install --user-installでインストールしたもの）
@@ -56,6 +60,7 @@ path=(# システム用
     #ANDROID環境
     $ANDROID_HOME/tools(N-/)
     $ANDROID_NDK_HOME(N-/)
+    $NDK_ROOT(N-/)
 
     # Emacs
     /usr/local/Cellar/emacs/24.3/bin(N-/)
