@@ -12,6 +12,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
   source ~/.vimrc.bundles.local
+  source ~/.vimrc.local
 endif
 
 call neobundle#end()
@@ -148,5 +149,5 @@ endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-
+let g:syntastic_python_checkers=['flake8', 'pep8']
+let g:syntastic_python_checker_args='--ignore=E501,E225'
