@@ -5,29 +5,16 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" install Vundle bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+  source ~/.vimrc.bundles.local
+endif
 
-" My Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'rking/ag.vim'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 call neobundle#end()
 
@@ -61,9 +48,7 @@ set autoindent
 
 " TABでなく空白文字を利用
 set expandtab
-
-""変更中のファイルでも、保存しないで他のファイルを表示する
-set hidden
+et hidden
 
 "インクリメンタルサーチを行う
 "set incsearch
@@ -83,6 +68,7 @@ set undodir=$HOME/.vim/.vimundo
 
 set wildmenu                            " コマンド補完を強化
 set wildmode=list:full                  " リスト表示，最長マッチ
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc, "**.min.**"
 
 set showcmd                             " 入力中のコマンドを表示
 set showmode
@@ -115,6 +101,7 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
+" 汎用設定
 " 保存時に空白削除
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -125,10 +112,67 @@ autocmd BufWritePre * :%s/\t/  /ge
 set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
-  endif
+endif
+" Fix Cursor in TMUX
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+
+
+" Plugin settings
+let g:ctrip_match_window _ 'order:ttb, max:20'
+let g:NERDSpaceDelims=1
+let g:gitgutter_enabled = 0
 
 " Keymapping
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+
+" insert mode での移動
+inoremap  <C-e> <END>
+inoremap  <C-a> <HOME>
+
+" インサートモードでもhjklで移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+
+nnoremap <expr> 0
+      \ col('.') == 1 ? '^' : '0'
+" Leader Vでvimrc読み直し
+noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+" Go crazy!
+if filereadable(expand("~/.vimrc.local"))
+  " In your .vimrc.local, you might like:
+  "
+  " set autowrite
+  " set nocursorline
+  " set nowritebackup
+  " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
+  "
+  " autocmd! bufwritepost .vimrc source ~/.vimrc
+  " noremap! jj <ESC>
+  source ~/.vimrc.local
+endif
+
+
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+
