@@ -1,6 +1,5 @@
 if has('vim_starting')
   set nocompatible               " Be iMproved
-
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -9,12 +8,11 @@ endif
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" install Vundle bundles
+" install NeoBundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
   source ~/.vimrc.bundles.local
 endif
-
 
 call neobundle#end()
 
@@ -26,6 +24,11 @@ filetype plugin indent on
 NeoBundleCheck
 
 
+if filereadable(expand("~/.vimrc.keymap"))
+  source ~/.vimrc.keymap
+endif
+
+set nocursorline " don't highlight current line
 
 "#####表示設定#####
 set title "編集中のファイル名を表示
@@ -35,20 +38,22 @@ set smartindent autoindent "オートインデント
 set backspace=indent,eol,start
 set wildmode=longest,list,full
 
-""#####検索設定#####
+"""#####検索設定#####
 set ignorecase "大文字/小文字の区別なく検索する
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
 
 "--------------------
-""" 基本的な設定
+"""" 基本的な設定
 "--------------------
-""新しい行のインデントを現在行と同じにする
+"""新しい行のインデントを現在行と同じにする
 set autoindent
 
 " TABでなく空白文字を利用
 set expandtab
-et hidden
+
+""変更中のファイルでも、保存しないで他のファイルを表示する
+set hidden
 
 "インクリメンタルサーチを行う
 "set incsearch
@@ -68,7 +73,6 @@ set undodir=$HOME/.vim/.vimundo
 
 set wildmenu                            " コマンド補完を強化
 set wildmode=list:full                  " リスト表示，最長マッチ
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc, "**.min.**"
 
 set showcmd                             " 入力中のコマンドを表示
 set showmode
@@ -83,96 +87,66 @@ hi ZenkakuSpace guibg=DarkBlue gui=underline ctermfg=LightBlue
 match ZenkakuSpace /　/                 " 全角文字
 
 set laststatus=2                        " ステータスラインを2行に
-set statusline=%<%F\ #%n%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%=%l,%c%V%8P
 
 
 " Show full path  ----------------------
 augroup EchoFilePath
   autocmd WinEnter * execute "normal! 1\<C-g>"
-augroup END
+  augroup END
 
 
-" Charset, Line ending -----------------
-set termencoding=utf-8
-set encoding=utf-8
-set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932
-set ffs=unix,dos,mac
-if exists('&ambiwidth')
-  set ambiwidth=double
+  " Charset, Line ending -----------------
+  set termencoding=utf-8
+  set encoding=utf-8
+  set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932
+  set ffs=unix,dos,mac
+  if exists('&ambiwidth')
+    set ambiwidth=double
+    endif
+
+    " 保存時に空白削除
+    autocmd BufWritePre * :%s/\s\+$//e
+
+    " 保存時にtabをスペースに変換する
+    autocmd BufWritePre * :%s/\t/  /ge
+
+    " Enable basic mouse behavior such as resizing buffers.
+    set mouse=a
+    if exists('$TMUX')  " Support resizing in tmux
+      set ttymouse=xterm2
+        endif
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+" highlight search
+"set hlsearch
+"nmap <leader>hl :let @/ = ""<CR>
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme solarized
+  else
+    colorscheme desert
+  endif
 endif
 
-" 汎用設定
-" 保存時に空白削除
-autocmd BufWritePre * :%s/\s\+$//e
-
-" 保存時にtabをスペースに変換する
-autocmd BufWritePre * :%s/\t/  /ge
-
-" Enable basic mouse behavior such as resizing buffers.
-set mouse=a
-if exists('$TMUX')  " Support resizing in tmux
-  set ttymouse=xterm2
-endif
-" Fix Cursor in TMUX
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-
-
-" Plugin settings
-let g:ctrip_match_window _ 'order:ttb, max:20'
-let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
-
-" Keymapping
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-
-" insert mode での移動
-inoremap  <C-e> <END>
-inoremap  <C-a> <HOME>
-
-" インサートモードでもhjklで移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-
-nnoremap <expr> 0
-      \ col('.') == 1 ? '^' : '0'
-" Leader Vでvimrc読み直し
-noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-" Go crazy!
-if filereadable(expand("~/.vimrc.local"))
-  " In your .vimrc.local, you might like:
-  "
-  " set autowrite
-  " set nocursorline
-  " set nowritebackup
-  " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
-  "
-  " autocmd! bufwritepost .vimrc source ~/.vimrc
-  " noremap! jj <ESC>
-  source ~/.vimrc.local
-endif
-
+" Disambiguate ,a & ,t from the Align plugin, making them fast again.
+"
+" This section is here to prevent AlignMaps from adding a bunch of mappings
+" that interfere with the very-common ,a and ,t mappings. This will get run
+" at every startup to remove the AlignMaps for the *next* vim startup.
+"
+" If you do want the AlignMaps mappings, remove this section, remove
+" ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
+function! s:RemoveConflictingAlignMaps()
+  if exists("g:loaded_AlignMapsPlugin")
+    AlignMapsClean
+  endif
+endfunction
+command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
