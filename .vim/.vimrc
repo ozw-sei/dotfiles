@@ -151,3 +151,4 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 let g:syntastic_python_checkers=['flake8', 'pep8']
 let g:syntastic_python_checker_args='--ignore=E501,E225'
+let g:gitgutter_realtime = 1
