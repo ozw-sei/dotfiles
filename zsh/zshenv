@@ -23,21 +23,24 @@ typeset -U path
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
 path=(# システム用
-    /usr/local/bin(N-/)
-        /usr/local/sbin
+/usr/local/bin(N-/)
+/usr/local/sbin
 
 
-        /usr/bin(N-/)
-        /bin(N-/)
-        /sbin(N-/)
-        /usr/texbin
-        /usr/sbin
-            # cocos2dx
-        $HOME/anaconda/bin(N-/)
-        $COCOS_CONSOLE_ROOT(N-/)
+/usr/bin(N-/)
+/bin(N-/)
+/sbin(N-/)
+/usr/texbin
+/usr/sbin
+# cocos2dx
+$HOME/anaconda/bin(N-/)
+$COCOS_CONSOLE_ROOT(N-/)
+/usr/local/bin(N-/)
+/usr/local/sbin
 
-    # 自分用（--prefix=$HOME/localでインストールしたもの）
-    $HOME/local/bin(N-/)
+
+# 自分用（--prefix=$HOME/localでインストールしたもの）
+$HOME/local/bin(N-/)
     # 自分用（gem install --user-installでインストールしたもの）
     ## 2012-01-07
     $HOME/.gem/ruby/*/bin(N-/)
