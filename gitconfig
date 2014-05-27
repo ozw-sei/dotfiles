@@ -1,23 +1,25 @@
 [user]
-	name = ozawaseijiro
-	email = seijiro4751@gmail.com
+  name = ozawaseijiro
+  email = seijiro4751@gmail.com
 [color]
-	ui = auto
+  ui = auto
 
 [mergetool]
-	keepBackup = true
+  keepBackup = true
 
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore
+  editor = vim
+  excludesfile = ~/.gitignore
 
 [alias]
-	st = status
-	cm = commit
-	pl = pull
-	co = checkout
-	br = branch
+  st = status
+  cm = commit
+  pl = pull
+  co = checkout
+  br = branch
 
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[push]
+  default = simple
