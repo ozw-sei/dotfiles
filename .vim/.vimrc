@@ -4,14 +4,12 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " install NeoBundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
-  source ~/.vimrc.bundles.local
   source ~/.vimrc.local
 endif
 

@@ -5,6 +5,6 @@ emacs.d/auto-save-list/
 emacs.d/ac-comphist.dat
 emacs.d/.cask/*
 
-/vim/bundle/*
+/.vim/bundle/*
 zsh/maximumx-awesome
 
