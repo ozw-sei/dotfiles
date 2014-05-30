@@ -8,6 +8,7 @@ export VIRTUALENV_USE_DITRIBUTE=true
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PYENV_ROOT=$HOME/.pyenv
 export RBENV_ROOT=$HOME/.rbenv
+export NODEBREW_ROOT=$HOME/.nodebrew
 export PYTHON_PATH=/usr/local/Cellar/python/2.7.6/bin
 export PGDATA=/usr/local/var/postgres
 export LANG=en_US.UTF-8
@@ -55,6 +56,9 @@ $HOME/local/bin(N-/)
     /opt/csw/bin(N-/)
     /usr/sfw/bin(N-/)
     /usr/ccs/bin(N-/)
+
+    # nodebrew$
+    $HOME/.nodebrew/current/bin
 
     #version env
     $PYENV_ROOT/bin(N-/)

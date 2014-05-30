@@ -5,6 +5,15 @@ emacs.d/auto-save-list/
 emacs.d/ac-comphist.dat
 emacs.d/.cask/*
 
-/vim/bundle/*
+/.vim/bundle/*
+/.vim/*
+!/.vim/.gitignore
+!/.vim/.vimrc
+!/.vim/.vimrc
+!/.vim/.vimrc.bundles
+!/.vim/.vimrc.keymap
+!/.vim/.vimrc.local
+
+
 zsh/maximumx-awesome
 

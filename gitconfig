@@ -1,6 +1,7 @@
 [user]
   name = ozawaseijiro
   email = seijiro4751@gmail.com
+
 [color]
   ui = auto
 
@@ -17,9 +18,16 @@
   pl = pull
   co = checkout
   br = branch
+  f = fetch
+  m = merge
+  df = diff
+  t = tag
+  a = add
 
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
+
 [push]
   default = simple
+
