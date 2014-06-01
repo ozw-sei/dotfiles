@@ -1,1 +1,1 @@
-test
+自分用のVimrc、Zshrc、Gitconfigなどの設定ファイル
