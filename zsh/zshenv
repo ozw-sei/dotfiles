@@ -6,8 +6,7 @@ export ANDROID_HOME=$DEVELOP/Lib/android-sdk/22.2.1/
 export ANDROID_NDK_HOME=$DEVELOP/Lib/android-ndk/android-ndk/9/
 export VIRTUALENV_USE_DITRIBUTE=true
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export PYENV_ROOT=$HOME/.pyenv
-export RBENV_ROOT=$HOME/.rbenv
+export ANYENV_ROOT=$HOME/.anyenv
 export NODEBREW_ROOT=$HOME/.nodebrew
 export PYTHON_PATH=/usr/local/Cellar/python/2.7.6/bin
 export PGDATA=/usr/local/var/postgres
@@ -76,7 +75,8 @@ $HOME/local/bin(N-/)
     # Cygwin用
     /cygdrive/c/meadow/bin(N-/)
     # システム用
-        /usr/games(N-/)
+    /usr/games(N-/)
+    $ANYENV_ROOT/bin
 )
 
 
