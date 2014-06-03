@@ -146,3 +146,5 @@ augroup AlpacaTags
     " autocmd BufWritePost * TagsUpdate
   endif
 augroup END
+
+set tags=.tags
