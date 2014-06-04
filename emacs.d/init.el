@@ -158,6 +158,7 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 
+
 (define-key ac-completing-map (kbd "C-s") 'ac-next) ; C-sで次候補選択
 (define-key ac-completing-map (kbd "C-r") 'ac-previous)  ; C-rで前候補選択
 (ac-set-trigger-key "TAB")  ; TABで補完開始(トリガーキー)

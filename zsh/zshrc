@@ -426,4 +426,13 @@ fi
 
 # .xxenv
 eval "$(pyenv init -)"
+<<<<<<< HEAD
 eval "$(rbenv init -)"
+=======
+
+## z config
+# _Z_CMD=j
+# precmd() {
+#     _z --add "$(pwd -P)"
+# }
+>>>>>>> 656c2adb166d8229dc0226a86c06ca5f525e6643
