@@ -7,7 +7,7 @@ emacs.d/.cask/*
 
 /.vim/bundle/*
 !/.vim/bundles/neobundle.vim
-./.vim/*
+/.vim/*
 !/.vim/.gitignore
 !/.vim/.vimrc
 !/.vim/.vimrc.bundles
