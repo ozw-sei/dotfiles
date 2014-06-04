@@ -23,26 +23,26 @@ typeset -U path
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
 path=(# システム用
-/usr/local/bin(N-/)
-/usr/local/sbin
+  /usr/local/bin(N-/)
+  /usr/local/sbin
 
 
-/usr/bin(N-/)
-/bin(N-/)
-/sbin(N-/)
-/usr/texbin
-/usr/sbin
-# cocos2dx
-$HOME/anaconda/bin(N-/)
-$COCOS_CONSOLE_ROOT(N-/)
-/usr/local/bin(N-/)
-/usr/local/sbin
+  /usr/bin(N-/)
+  /bin(N-/)
+  /sbin(N-/)
+  /usr/texbin
+  /usr/sbin
+  # cocos2dx
+  $HOME/anaconda/bin(N-/)
+  $COCOS_CONSOLE_ROOT(N-/)
+  /usr/local/bin(N-/)
+  /usr/local/sbin
 
 
-# 自分用（--prefix=$HOME/localでインストールしたもの）
-$HOME/local/bin(N-/)
-    # 自分用（gem install --user-installでインストールしたもの）
-    ## 2012-01-07
+  # 自分用（--prefix=$HOME/localでインストールしたもの）
+  $HOME/local/bin(N-/)
+  # 自分用（gem install --user-installでインストールしたもの）
+  ## 2012-01-07
     $HOME/.gem/ruby/*/bin(N-/)
     # rbenv用
     ## 2012-02-21
@@ -164,26 +164,6 @@ pkg_config_path=(# 自分用
     # MacPorts用
     /opt/local/lib/pkgconfig(N-/))
 
-# ページャの設定
-if type lv > /dev/null 2>&1; then
-    ## lvを優先する。
-    export PAGER="lv"
-else
-    ## lvがなかったらlessを使う。
-    export PAGER="less"
-fi
-
-# lvの設定
-## -c: ANSIエスケープシーケンスの色付けなどを有効にする。
-## -l: 1行が長くと折り返されていても1行として扱う。
-##     （コピーしたときに余計な改行を入れない。）
-export LV="-c -l"
-
-if [ "$PAGER" != "lv" ]; then
-    ## lvがなくてもlvでページャーを起動する。
-    alias lv="$PAGER"
-fi
-
 # lessの設定
 ## -R: ANSIエスケープシーケンスのみ素通しする。
 ## 2012-09-04
@@ -240,19 +220,4 @@ export EDITOR=vim
 if ! type vim > /dev/null 2>&1; then
     alias vim=vi
 fi
-
-# メールアドレスの設定
-## ~/.zsh.d/email → ~/.emailの順に探して最初に見つかったファイルから読み込む。
-## (N-.): 存在しないファイルは登録しない。
-##    パス(...): ...という条件にマッチするパスのみ残す。
-##            N: NULL_GLOBオプションを設定。
-##               globがマッチしなかったり存在しないパスを無視する。
-##            -: シンボリックリンク先のパスを評価。
-##            .: 通常のファイルのみ残す。
-email_files=(~/.zsh.d/email(N-.)
-    ~/.email(N-.))
-for email_file in ${email_files}; do
-    export EMAIL=$(cat "$email_file")
-    break
-done
 

@@ -7,6 +7,6 @@
 [submodule "zsh/maximum-awesome"]
 	path = zsh/maximum-awesome
 	url = https://github.com/square/maximum-awesome.git
-[submodule ".vim/bundle/neobundle.vim"]
-	path = .vim/bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim
+[submodule "zsh/vendor/auto-fu.zsh"]
+	path = zsh/vendor/auto-fu.zsh
+	url = https://github.com/hchbaw/auto-fu.zsh.git
