@@ -62,9 +62,11 @@ set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
-set wildmenu                                                 " show a navigable menu for tab completion
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc., *.pyc, .DS_Store, .DS_Store
+set wildmenu                                                 " show a navigable menu for tb completion
 set wildmode=longest,list,full
+
+set scrolloff=30
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -78,6 +80,12 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+inoremap <C-i> <C-n>
+inoremap <C-o> <C-p>
+inoremap <C-k> <C-o>D
+inoremap <C-u> <C-o>d0
+
 noremap <leader>l :Align
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
@@ -89,7 +97,8 @@ nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>c <Plug>Kwbd
-noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <leader>u :GundoToggle<CR>
+noremap <silent> <leader>v :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
@@ -137,24 +146,19 @@ inoremap  <C-e> <END>
 inoremap  <C-a> <HOME>
 
 " インサートモードでもhjklで移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 nnoremap <expr> 0
       \ col('.') == 1 ? '^' : '0'
 set nocursorline " don't highlight current line
-
-augroup AlpacaTags
-  autocmd!
-  if exists(':Tags')
-    autocmd BufWritePost Gemfile TagsBundle
-    autocmd BufEnter * TagsSet
-    " 毎回保存と同時更新する場合はコメントを外す
-    " autocmd BufWritePost * TagsUpdate
-  endif
-augroup END
-
 set tags=.tags
+
+" Vim-Smartchr
+inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+inoremap <buffer> <expr> <S-=> smartchr#loop(' + ', '+')
+inoremap <buffer> <expr> - smartchr#loop(' - ', '-')
+inoremap <buffer> <expr> , smartchr#loop(', ', ',')
+inoremap <buffer> <expr> . smartchr#loop('.', '<%=  %>', '<%  %>')
