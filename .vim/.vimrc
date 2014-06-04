@@ -30,7 +30,17 @@ endif
 filetype plugin indent on
 
 syntax on
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+
+set guifont=Consolas:h14
+set guifontwide=Consolas:h14
+
 colorscheme solarized
+
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
@@ -63,7 +73,7 @@ if exists('$TMUX')  " Support resizing in tmux
 endif
 
 " keyboard shortcuts
-let mapleader = ','
+let mapleader = ' '
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
