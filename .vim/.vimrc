@@ -30,8 +30,16 @@ endif
 filetype plugin indent on
 
 syntax on
-on
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+
 colorscheme solarized
+
+set guifont=Consolas:h14
+set guifontwide=Consolas:h14
 
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`

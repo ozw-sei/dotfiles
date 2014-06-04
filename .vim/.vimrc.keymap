@@ -16,12 +16,12 @@ inoremap <C-l> <Right>
 
 
 nnoremap <expr> 0
-			\ col('.') == 1 ? '^' : '0'
+      \ col('.') == 1 ? '^' : '0'
 " Leader Vでvimrc読み直し
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetypedetect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " keyboard shortcuts
-let mapleader = ','
+let mapleader = ' '
 noremap \ '
 
 noremap <leader>l :Align
