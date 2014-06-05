@@ -11,6 +11,9 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
+  aurocrlf
+  whitespace = trailing-space, space-before-tab, indent-with-non-tab
+
 
 [alias]
   st = status
@@ -20,7 +23,8 @@
   br = branch
   f = fetch
   m = merge
-  df = diff
+  df = diff --color --check
+
   t = tag
   a = add
 
@@ -31,3 +35,8 @@
 [push]
   default = simple
 
+[apply]
+  whiteapace = error
+
+[help]
+  autocorrec = 1

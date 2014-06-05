@@ -62,7 +62,7 @@ set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc., *.pyc, .DS_Store, .DS_Store
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc., .DS_Store, .DS_Store
 set wildmenu                                                 " show a navigable menu for tb completion
 set wildmode=longest,list,full
 
@@ -159,6 +159,5 @@ set tags=.tags
 " Vim-Smartchr
 inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
 inoremap <buffer> <expr> <S-=> smartchr#loop(' + ', '+')
-inoremap <buffer> <expr> - smartchr#loop(' - ', '-')
 inoremap <buffer> <expr> , smartchr#loop(', ', ',')
 inoremap <buffer> <expr> . smartchr#loop('.', '<%=  %>', '<%  %>')
