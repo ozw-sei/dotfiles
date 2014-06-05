@@ -3,11 +3,20 @@
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
+" Utilities
+" Snippet
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
+" Complete
+" Syntax
+" Language
+" git
+" ColorScheme
+NeoBundle 'flazz/vim-colorschemes'
+
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'airblade/vim-gitgutter'
@@ -17,7 +26,6 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'juvenn/mustache.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'msanders/snipmate.vim'
@@ -49,8 +57,5 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'ingydotnet/yaml-vim'
-NeoBundle 'dougireton/vim-chef'
-NeoBundle 'shawncplus/phpcomplete.vim'
 NeoBundle 'kana/vim-smartchr'
-NeoBundle 'vim-scripts/teol.vim.git'
-NeoBundle 'elzr/vim-json'
+

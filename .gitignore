@@ -7,6 +7,7 @@ emacs.d/.cask/*
 
 /.vim/bundle/*
 !/.vim/bundles/neobundle.vim
+
 /.vim/*
 !/.vim/.gitignore
 !/.vim/.vimrc
@@ -14,6 +15,12 @@ emacs.d/.cask/*
 !/.vim/.vimrc.keymap
 !/.vim/.vimrc.local
 
-
 zsh/maximumx-awesome
 
+
+!neobundle
+
+/.vim/bundle/neocomplete.vim
+/.vim/bundle/vim-colorschemes
+/.vim/bundle/vim-fugitive
+/.vim/bundle/vim-gitgutter

@@ -36,10 +36,10 @@ else
   set background=dark
 endif
 
+colorscheme solarized
+
 set guifont=Consolas:h14
 set guifontwide=Consolas:h14
-
-colorscheme solarized
 
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -81,7 +81,6 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-inoremap <C-i> <C-n>
 inoremap <C-o> <C-p>
 inoremap <C-k> <C-o>D
 inoremap <C-u> <C-o>d0
