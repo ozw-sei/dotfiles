@@ -62,7 +62,7 @@ set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc., .DS_Store, .DS_Store
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc.
 set wildmenu                                                 " show a navigable menu for tb completion
 set wildmode=longest,list,full
 
@@ -85,6 +85,11 @@ inoremap <C-o> <C-p>
 inoremap <C-k> <C-o>D
 inoremap <C-u> <C-o>d0
 
+inoremap <silent> jj <ESC>
+inoremap <silent> <C-j> j
+inoremap <silent> kk <ESC>
+inoremap <silent> <C-k> k
+
 noremap <leader>l :Align
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
@@ -105,7 +110,7 @@ cnoremap w!! %!sudo tee > /dev/null %
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
