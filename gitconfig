@@ -2,41 +2,7 @@
   name = ozawaseijiro
   email = seijiro4751@gmail.com
 
-[color]
-  ui = auto
-
-[mergetool]
-  keepBackup = true
-
-[core]
-  editor = vim
-  excludesfile = ~/.gitignore
-  aurocrlf
-  whitespace = trailing-space, space-before-tab, indent-with-non-tab
+[include]
+  path  =  ~/dotfiles/base_gitconfig
 
 
-[alias]
-  st = status
-  cm = commit
-  pl = pull
-  co = checkout
-  br = branch
-  f = fetch
-  m = merge
-  df = diff --color --check
-
-  t = tag
-  a = add
-
-[filter "media"]
-  clean = git-media-clean %f
-  smudge = git-media-smudge %f
-
-[push]
-  default = simple
-
-[apply]
-  whiteapace = error
-
-[help]
-  autocorrec = 1

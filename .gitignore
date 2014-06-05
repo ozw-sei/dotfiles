@@ -24,3 +24,6 @@ zsh/maximumx-awesome
 /.vim/bundle/vim-colorschemes
 /.vim/bundle/vim-fugitive
 /.vim/bundle/vim-gitgutter
+
+/aainc_gitconfig
+
