@@ -12,24 +12,26 @@
 
 
 [alias]
-  st = status
-  cm = commit
-  pl = pull
+  s = status
+  c = commit
+  ca = commit -a
+  ap = add -p
+  p = pull
   co = checkout
-  br = branch
-  f = fetch
+  b = branch
+  f = fetch --prune
   m = merge
   df = diff --color --check
-
   t = tag
   a = add
+  logg  =  log --stat --decorate = short --pretty = format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
 
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
 
 [push]
-  default = simple
+  default = current
 
 [apply]
   whiteapace = error
