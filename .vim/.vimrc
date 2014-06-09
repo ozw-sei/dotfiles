@@ -162,8 +162,3 @@ nnoremap <expr> 0
 set nocursorline " don't highlight current line
 set tags=.tags
 
-" Vim-Smartchr
-inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
-inoremap <buffer> <expr> <S-=> smartchr#loop(' + ', '+')
-inoremap <buffer> <expr> , smartchr#loop(', ', ',')
-inoremap <buffer> <expr> . smartchr#loop('.', '<%=  %>', '<%  %>')

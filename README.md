@@ -1,1 +1,2 @@
-自分用のVimrc、Zshrc、Gitconfigなどの設定ファイル
+自分用のvimrc、zshrc、gitconfigなどの設定ファイル
+
