@@ -104,13 +104,6 @@ nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>c <Plug>Kwbd
 nnoremap <leader>u :GundoToggle<CR>
 noremap <silent> <leader>v :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-<<<<<<< HEAD
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap () ()<Left>
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap <> <>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
