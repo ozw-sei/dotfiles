@@ -117,8 +117,4 @@ source ~/.zshenv
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
 
-## z config
-# _Z_CMD=j
-# precmd() {
-#     _z --add "$(pwd -P)"
-# }
+

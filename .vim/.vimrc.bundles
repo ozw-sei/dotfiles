@@ -50,4 +50,6 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'mklabs/grunt.vim'
-
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'toyamarinyon/vim-swift'
+NeoBundle 'derekwyatt/vim-scala'
