@@ -1,0 +1,12 @@
+source $HOME/dotfiles/zsh/vendor/zaw/zaw.zsh
+zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
+zstyle ':filter-select' case-insensitive yes
+
+bindkey '^@' zaw-cdr
+bindkey '^R' zaw-history
+bindkey '^X^F' zaw-git-files
+bindkey '^X^B' zaw-git-branches
+bindkey '^X^P' zaw-process
+bindkey '^Q' zaw-tmux
+
+

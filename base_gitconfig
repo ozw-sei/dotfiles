@@ -1,0 +1,40 @@
+[color]
+  ui = auto
+
+[mergetool]
+  keepBackup = true
+
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+  aurocrlf
+  whitespace = trailing-space, space-before-tab, indent-with-non-tab
+
+
+[alias]
+  s = status
+  c = commit
+  ca = commit -a
+  ap = add -p
+  p = pull
+  co = checkout
+  b = branch
+  f = fetch --prune
+  m = merge
+  df = diff --color --check
+  t = tag
+  a = add
+  logg  =  log --stat --decorate = short --pretty = format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+
+[push]
+  default = current
+
+[apply]
+  whiteapace = error
+
+[help]
+  autocorrec = 1

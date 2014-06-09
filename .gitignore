@@ -5,15 +5,15 @@ emacs.d/auto-save-list/
 emacs.d/ac-comphist.dat
 emacs.d/.cask/*
 
-./.vim/bundle/*
+/.vim/bundle/*
 !/.vim/bundles/neobundle.vim
 
-./.vim/*
-!./.vim/.gitignore
-!./.vim/.vimrc
-!./.vim/.vimrc.bundles
-!./.vim/.vimrc.keymap
-!./.vim/.vimrc.local
+/.vim/*
+!/.vim/.gitignore
+!/.vim/.vimrc
+!/.vim/.vimrc.bundles
+!/.vim/.vimrc.keymap
+!/.vim/.vimrc.local
 
 zsh/maximumx-awesome
 
@@ -24,3 +24,6 @@ zsh/maximumx-awesome
 /.vim/bundle/vim-colorschemes
 /.vim/bundle/vim-fugitive
 /.vim/bundle/vim-gitgutter
+
+/aainc_gitconfig
+
