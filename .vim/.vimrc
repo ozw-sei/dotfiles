@@ -65,6 +65,7 @@ set tabstop=8                                                " actual tabs occup
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc.
 set wildmenu                                                 " show a navigable menu for tb completion
 set wildmode=longest,list,full
+set imdisable
 
 set scrolloff=30
 
@@ -133,6 +134,7 @@ autocmd User Rails silent! Rnavcommand feature        features                  
 autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
 autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
 autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -150,10 +152,10 @@ inoremap  <C-e> <END>
 inoremap  <C-a> <HOME>
 
 " インサートモードでもhjklで移動
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 nnoremap <expr> 0
       \ col('.') == 1 ? '^' : '0'
