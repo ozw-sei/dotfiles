@@ -16,7 +16,8 @@
   c = commit
   ca = commit -a
   ap = add -p
-  p = pull
+  pl = pull
+  ps = push
   co = checkout
   b = branch
   f = fetch --prune
