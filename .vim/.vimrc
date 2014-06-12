@@ -1,3 +1,4 @@
+syntax on
 if has('vim_starting')
   set nocompatible               " Be iMproved
   " Required:
@@ -29,13 +30,13 @@ endif
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
 
-syntax on
 if has('gui_running')
   set background=light
 else
   set background=dark
 endif
 
+syntax on
 colorscheme solarized
 
 set guifont=Consolas:h14
@@ -100,18 +101,25 @@ nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
-nnoremap <leader>g :GitGutterToggle<CR>
+nnoremap <leader>g :Ggrep<space>
 nnoremap <leader>c <Plug>Kwbd
-nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>u :GundoToggle<space>
 noremap <silent> <leader>v :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 
 " plugin settings
-let g:ctrlp_match_window = 'order:ttb,max:20'
+let g:ctrlp_match_window='order:ttb,max:20'
 let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 1
+let g:gitgutter_enabled=1
+
+" figitive settings
+" grep検索の実行後にQuickFix Listを表示する
+autocmd QuickFixCmdPost *grep* cwindow
+
+" ステータス行に現在のgitブランチを表示する
+set statusline+=%{fugitive#statusline()}
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
