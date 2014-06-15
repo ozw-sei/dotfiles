@@ -61,4 +61,5 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'ingydotnet/yaml-vim'
+NeoBundle 'szw/vim-tags'
 
