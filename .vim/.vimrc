@@ -70,7 +70,7 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set imdisable
 
-set scrolloff=30
+" set scrolloff=30
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -94,6 +94,7 @@ inoremap <silent> <C-j> j
 inoremap <silent> kk <ESC>
 inoremap <silent> <C-k> k
 
+noremap <leader> <C-f> :UniteWithBufferDir -buffer-name=files file file/new<CR>
 noremap <leader>l :Align
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
@@ -105,7 +106,7 @@ nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :Ggrep<space>
 nnoremap <leader>c <Plug>Kwbd
-nnoremap <leader>u :GundoToggle<space>
+nnoremap <leader>u :GundoToggle<CR>
 noremap <silent> <leader>v :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " in case you forgot to sudo
@@ -176,3 +177,12 @@ set tags=.tags
  au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
 
 nnoremap <C-]> g<C-]> 
+"let g:unite_enable_start_insert=1
+""ヒストリー/ヤンク機能を有効化
+let g:unite_enable_start_insert = 1
+let g:unite_enable_split_vertically = 0
+let g:unite_winwidth = 40
+let g:unite_source_history_yank_enable =1
+
+"prefix keyの設定
+nmap \ [unite]
