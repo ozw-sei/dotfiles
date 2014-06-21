@@ -13,9 +13,6 @@ NeoBundle 'Shougo/neosnippet-snippets'
 " git
 " ColorScheme
 NeoBundle 'flazz/vim-colorschemes'
-
-
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/neocomplete.vim'
@@ -62,4 +59,8 @@ NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'ingydotnet/yaml-vim'
 NeoBundle 'szw/vim-tags'
-
+NeoBundle 'othree/html5.vim'
+NeoBundle 'gre/play2vim'
+NeoBundle 'sickill/vim-monokai'
+NeoBundle 'nvie/vim-flake8'
+NeoBundle 'mattn/emmet-vim'
