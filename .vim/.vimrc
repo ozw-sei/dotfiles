@@ -32,12 +32,14 @@ filetype plugin indent on
 
 if has('gui_running')
   set background=light
+  colorscheme monokai
 else
   set background=dark
+
+  colorscheme solarized
 endif
 
 syntax on
-colorscheme solarized
 
 set guifont=Consolas:h14
 set guifontwide=Consolas:h14
@@ -171,6 +173,10 @@ nnoremap <expr> 0
 set nocursorline " don't highlight current line
 set tags=.tags
 
+" vim-tags
+ au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
+
+nnoremap <C-]> g<C-]> 
 "let g:unite_enable_start_insert=1
 ""ヒストリー/ヤンク機能を有効化
 let g:unite_enable_start_insert = 1
