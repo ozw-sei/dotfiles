@@ -178,5 +178,3 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 let g:unite_source_history_yank_enable =1
 
-"prefix keyの設定
-nmap \ [unite]
