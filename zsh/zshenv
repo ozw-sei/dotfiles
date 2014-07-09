@@ -39,9 +39,7 @@ path=(# システム用
   /usr/local/sbin
 
 
-  # 自分用（--prefix=$HOME/localでインストールしたもの）
-  $HOME/local/bin(N-/)
-  # 自分用（gem install --user-installでインストールしたもの）
+ # 自分用（gem install --user-installでインストールしたもの）
   ## 2012-01-07
     $HOME/.gem/ruby/*/bin(N-/)
     # rbenv用
@@ -77,6 +75,9 @@ path=(# システム用
     # システム用
     /usr/games(N-/)
     $ANYENV_ROOT/bin
+     # 自分用（--prefix=$HOME/localでインストールしたもの）
+    $HOME/local/bin(N-/)
+
 )
 
 

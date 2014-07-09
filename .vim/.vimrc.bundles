@@ -69,7 +69,6 @@ NeoBundle 'mjbrownie/django-template-textobjects'
 NeoBundle 'vim-scripts/indentpython.vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'vim-scripts/Auto-Pairs'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'davidhalter/jedi-vim'
 
