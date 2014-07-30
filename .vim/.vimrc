@@ -186,25 +186,25 @@ let g:unite_source_history_yank_enable =1
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 if neobundle#is_installed('neocomplete')
-" neocomplete用設定
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#keyword_patterns')
-let g:neocomplete#keyword_patterns = {}
+    " neocomplete用設定
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_ignore_case = 1
+    let g:neocomplete#enable_smart_case = 1
+    if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 elseif neobundle#is_installed('neocomplcache')
 " neocomplcache用設定
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_ignore_case = 1
+    let g:neocomplcache_enable_smart_case = 1
 if !exists('g:neocomplcache_keyword_patterns')
-let g:neocomplcache_keyword_patterns = {}
+    let g:neocomplcache_keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns._ = '\h\w*'
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
+    let g:neocomplcache_keyword_patterns._ = '\h\w*'
+    let g:neocomplcache_enable_camel_case_completion = 1
+    let g:neocomplcache_enable_underbar_completion = 1
 endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
@@ -213,3 +213,9 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 imap <expr><C-s> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <C-s> <Plug>(neocomplcache_snippets_expand)
 
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" " Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'"

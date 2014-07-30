@@ -12,6 +12,7 @@ export PYTHON_PATH=/usr/local/Cellar/python/2.7.6/bin
 export PGDATA=/usr/local/var/postgres
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
 
 # パスの設定
 ## 重複したパスを登録しない。
