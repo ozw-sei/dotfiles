@@ -26,7 +26,7 @@ typeset -U path
 path=(# システム用
   /usr/local/bin(N-/)
   /usr/local/sbin
-
+  /usr/local/mysql/bin(N-/)
 
   /usr/bin(N-/)
   /bin(N-/)
