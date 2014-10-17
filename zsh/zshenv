@@ -1,5 +1,5 @@
 # -*- sh -*-
-export DEVELOP=$HOME/Documents/Develop
+export DEVELOP=$HOME/Dropbox/Develop
 export PROJECT=$DEVELOP/Project
 export SANDBOX=$DEVELOP/Sandbox
 export ANDROID_HOME=$DEVELOP/Lib/android-sdk/22.2.1/
@@ -24,16 +24,17 @@ typeset -U path
 ##            -: シンボリックリンク先のパスを評価。
 ##            /: ディレクトリのみ残す。
 path=(# システム用
-  /usr/local/bin(N-/)
-  /usr/local/sbin
-  /usr/local/mysql/bin(N-/)
-
   /usr/bin(N-/)
   /bin(N-/)
   /sbin(N-/)
   /usr/texbin
   /usr/sbin
-  # cocos2dx
+
+  /usr/local/bin(N-/)
+  /usr/local/sbin
+  /usr/local/mysql/bin(N-/)
+
+    # cocos2dx
   $HOME/anaconda/bin(N-/)
   $COCOS_CONSOLE_ROOT(N-/)
   /usr/local/bin(N-/)
@@ -48,21 +49,12 @@ path=(# システム用
     $HOME/.rbenv/bin(N-/)
     # Debian GNU/Linux用
     /var/lib/gems/*/bin(N-/)
-    # MacPorts用
-    /opt/local/bin(N-/)
-    # Solaris用
-    /opt/csw/bin(N-/)
-    /usr/sfw/bin(N-/)
-    /usr/ccs/bin(N-/)
-
-    # nodebrew$
-    $HOME/.nodebrew/current/bin
-
-    #version env
+        #version env
     $PYENV_ROOT/bin(N-/)
     $RBENV_ROOT/bin(N-/)
     $PHPENV_ROOT/bin(N-/)
     $PLENV_ROOT/bin(N-/)
+    $HOME/.nodebrew/current/bin
 
     #ANDROID環境
     $ANDROID_HOME/tools(N-/)
@@ -78,7 +70,6 @@ path=(# システム用
     $ANYENV_ROOT/bin
      # 自分用（--prefix=$HOME/localでインストールしたもの）
     $HOME/local/bin(N-/)
-
 )
 
 

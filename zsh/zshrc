@@ -90,7 +90,7 @@ if [ -d ${HOME}/.anyenv ] ; then
 
 fi
 ### Added by the Heroku Toolbelt
-source $HOME/dotfiles/zsh/vendor/zaw/zaw.zsh
+# source $HOME/dotfiles/zsh/vendor/zaw/zaw.zsh
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -102,9 +102,9 @@ if [ -f `brew --prefix`/etc/autojump ]; then
 fi
 
 source ~/.zshenv
-source ~/dotfiles/zsh/zsh-zaw
+# source ~/dotfiles/zsh/zsh-zaw
 source ~/dotfiles/zsh/zsh-git-alias
 
 # .xxenv
-eval "$(anyenv init -)"
+# eval "$(anyenv init -)"
 
