@@ -71,4 +71,5 @@ NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'vim-scripts/Auto-Pairs'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'davidhalter/jedi-vim'
+NeoBUndle 'dag/vim-fish'
 
