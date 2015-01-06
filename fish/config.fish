@@ -41,6 +41,7 @@ set -x PATH $PATH /var/lib/gems/*/bin
 set -x PATH $PATH /usr/bin
 set -x PATH $PATH /sbin
 set -x PATH $PATH /usr/sbin
+set -x EDITOR vim
 
 
 #######################

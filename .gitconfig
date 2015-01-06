@@ -5,6 +5,5 @@
 [include]
   path  =  ~/dotfiles/base_gitconfig
 
-
 [mergetool]
 	keepBackup = true
