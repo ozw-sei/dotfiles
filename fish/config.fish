@@ -42,6 +42,7 @@ set -x PATH $PATH /usr/bin
 set -x PATH $PATH /sbin
 set -x PATH $PATH /usr/sbin
 set -x PATH $PATH /usr/local/mysql/bin
+set -x PATH $PATH ~/bin
 set -x EDITOR vim
 
 

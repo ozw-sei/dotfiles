@@ -1,6 +1,6 @@
 [user]
 	name = ozawaseijiro
-	email = seijiro4751@gmail.com
+	email = ozawa.seijoro@aainc.co.jp
 
 [include]
   path  =  ~/dotfiles/base_gitconfig

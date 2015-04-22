@@ -1,5 +1,6 @@
 task :install do
 	sh "ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+	sh "brew bundle"
 end
 
 task :update do

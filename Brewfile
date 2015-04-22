@@ -6,27 +6,6 @@ tap homebrew/php
 tap homebrew/versions
 tap phinze/cask
 
-cask install google-chrome
-cask install vagrant
-cask install virtualbox
-cask install Github
-cask install Evernote
-cask install Dropbox
-cask install IDEA14
-cask install Line
-cask install Skype
-cask install Spark
-cask install Atom
-cask install Unity3d
-cask install Transmission
-cask install sequel-pro
-cask install Processing
-cask install Kobito
-cask install Found
-cask install iterm2
-cask install slack
-cask install xtrafinder
-
 install autoconf
 install brew-cask
 install fish
@@ -70,3 +49,26 @@ install wget
 install xz
 install zlib
 install zsh
+
+
+
+cask install google-chrome
+cask install vagrant
+cask install virtualbox
+cask install Github
+cask install Evernote
+cask install Dropbox
+cask install IDEA14
+cask install Line
+cask install Skype
+cask install Spark
+cask install Atom
+cask install Unity3d
+cask install Transmission
+cask install sequel-pro
+cask install Processing
+cask install Kobito
+cask install Found
+cask install iterm2
+cask install slack
+cask install xtrafinder
