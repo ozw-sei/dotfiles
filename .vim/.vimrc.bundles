@@ -22,12 +22,12 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'vim-scripts/Align'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'Flake8-vim'
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'tyru/restart.vim'
+
+"NeoBundle 'Flake8-vim'
+"NeoBundle 'hynek/vim-python-pep8-indent'
+"NeoBundle 'Townk/vim-autoclose'
+"NeoBundle 'tyru/restart.vim'
 
 NeoBundleLazy 'vim-ruby/vim-ruby' ,{
     \    "autoload" : {"filetypes" : ["ruby"]}
