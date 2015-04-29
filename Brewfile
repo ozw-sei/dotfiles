@@ -1,74 +1,74 @@
-update
-upgrade
+tap 'homebrew/dupes'
+tap 'homebrew/php'
+tap 'homebrew/versions'
+tap 'phinze/cask'
 
-tap homebrew/dupes
-tap homebrew/php
-tap homebrew/versions
-tap phinze/cask
+brew 'autoconf'
+brew 'brew-cask'
+brew 'fish'
+brew 'composer'
+brew 'freetype'
+brew 'gdbm'
+brew 'gettext'
+brew 'git'
+brew 'hub'
+brew 'icu4c'
+brew 'imagemagick'
+brew 'jpeg'
+brew 'libevent'
+brew 'libmemcached'
+brew 'libpng'
+brew 'libtool'
+brew 'lua'
+brew 'memcached'
+brew 'mhash'
+brew 'mysql'
+brew 'openssl'
+brew 'pcre'
+brew 'php54'
+brew 'php54-imagick'
+brew 'php54-mcrypt'
+brew 'php54-memcached'
+brew 'pkg-config'
+brew 'python'
+brew 'python3'
+brew 'rbenv'
+brew 'readline'
+brew 'ruby-build'
+brew 'sbt'
+brew 'sqlite'
+brew 'tig'
+brew 'tmux'
+brew 'tmuxinator'
+brew 'typesafe-activator'
+brew 'unixodbc'
+brew 'vim'
+brew 'wget'
+brew 'xz'
+brew 'zlib'
+brew 'curl'
+brew 'zsh'
+brew 'editorconfig'
+brew 'trash'
 
-install autoconf
-install brew-cask
-install fish
-install freetype
-install gdbm
-install gettext
-install git
-install hub
-install icu4c
-install imagemagick
-install jpeg
-install libevent
-install libmemcached
-install libpng
-install libtool
-install lua
-install mcrypt
-install memcached
-install mhash
-install mysql
-install openssl
-install pcre
-install php54
-install php54-imagick
-install php54-mcrypt
-install php54-memcached
-install pkg-config
-install python
-install python3
-install rbenv
-install readline
-install ruby-build
-install sbt
-install sqlite
-install tig
-install tmux
-install typesafe-activator
-install unixodbc
-install vim
-install wget
-install xz
-install zlib
-install zsh
+brew tap sanemat/font
 
+tap 'phinze/homebrew-cask'
+brew 'brew-cask'
 
-
-cask install google-chrome
-cask install vagrant
-cask install virtualbox
-cask install Github
-cask install Evernote
-cask install Dropbox
-cask install IDEA14
-cask install Line
-cask install Skype
-cask install Spark
-cask install Atom
-cask install Unity3d
-cask install Transmission
-cask install sequel-pro
-cask install Processing
-cask install Kobito
-cask install Found
-cask install iterm2
-cask install slack
-cask install xtrafinder
+cask 'vagrant'
+cask 'virtualbox'
+cask 'github'
+cask 'dropbox'
+cask 'intellij-idea'
+cask 'transmission'
+cask 'sequel-pro'
+cask 'processing'
+cask 'iterm2'
+cask 'slack'
+cask 'xtrafinder'
+cask 'evernote'
+cask 'skitch'
+cask 'spark'
+cask 'skype'
+cask 'mysqlworkbench'
