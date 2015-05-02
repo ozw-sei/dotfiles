@@ -1,9 +1,4 @@
-[submodule "zsh/vendor/zaw"]
-  path = zsh/vendor/zaw
-  url = https://github.com/zsh-users/zaw.git
-[submodule "zsh/vendor/auto-fu.zsh"]
-  path = zsh/vendor/auto-fu.zsh
-  url = https://github.com/hchbaw/auto-fu.zsh.git
-[submodule "zsh/prezto"]
-	path = zsh/prezto
-	url = https://github.com/sorin-ionescu/prezto.git
+
+[submodule ".vim/bundles/neobundle.vim"]
+	path = .vim/bundles/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git

@@ -10,7 +10,7 @@ if has('vim_starting')
     endif
 
     " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.vim/bundles/neobundle.vim/
 endif
 
 " Required:

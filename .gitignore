@@ -6,6 +6,7 @@ emacs.d/ac-comphist.dat
 emacs.d/.cask/*
 
 /.vim/bundle/*
+!/.vim/bundles/.gitkeep
 !/.vim/bundles/neobundle.vim
 
 /.vim/*

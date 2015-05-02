@@ -1,7 +1,7 @@
-# ~/.tmuxinator/refuel3.yml
+# ~/.tmuxinator/dotfiles.yml
 
-name: refuel4
-root: ~/Documents/Develop/Project/ReFUEL4/ReFUEL4-Server
+name: dotfiles
+root: ~/dotfiles
 
 # Optional tmux socket
 # socket_name: foo
@@ -18,9 +18,14 @@ root: ~/Documents/Develop/Project/ReFUEL4/ReFUEL4-Server
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
 windows:
   - editor:
       layout: main-vertical
       panes:
-        - echo "TEST"
-  - server: php artisan serve
+        - vim
+        - guard
+  - server: bundle exec rails s
+  - logs: tail -f log/development.log
