@@ -2,3 +2,9 @@
 [submodule ".vim/bundles/neobundle.vim"]
 	path = .vim/bundles/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
+[submodule "zsh/plugins/zsh-vcs-prompt"]
+	path = zsh/plugins/zsh-vcs-prompt
+	url = https://github.com/yonchu/zsh-vcs-prompt
+[submodule "zsh/plugins/z"]
+	path = zsh/plugins/z
+	url = https://github.com/rupa/z.git

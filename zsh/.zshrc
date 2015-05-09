@@ -53,3 +53,10 @@ eval "$(rbenv init -)"
 
 # load zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+if [ -n "$TMUX" ]; then
+    alias pbcopy="reattach-to-user-namespace pbcopy"
+fi
+
+source "~/dotfiles/zsh/plugins/zsh-vcs-prompt/zshrc.sh"

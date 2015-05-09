@@ -50,6 +50,7 @@ brew 'curl'
 brew 'zsh'
 brew 'editorconfig'
 brew 'trash'
+brew 'reattach-to-user-namespace'
 
 brew tap sanemat/font
 
