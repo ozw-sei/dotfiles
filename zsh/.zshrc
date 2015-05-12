@@ -1,4 +1,14 @@
-## setopt
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
+
+source $ZSH/oh-my-zsh.sh
+
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt correct
@@ -24,8 +34,6 @@ SAVEHIST=100000
 
 autoload -U compinit
 compinit
-
-PROMPT="%{${fg[yellow]}%}$%{${reset_color}%} "
 
 ## history
 zle -N history-beginning-search-backward-end history-search-end
@@ -59,4 +67,4 @@ if [ -n "$TMUX" ]; then
     alias pbcopy="reattach-to-user-namespace pbcopy"
 fi
 
-source "~/dotfiles/zsh/plugins/zsh-vcs-prompt/zshrc.sh"
+# source "~/dotfiles/zsh/plugins/zsh-vcs-prompt/zshrc.sh"

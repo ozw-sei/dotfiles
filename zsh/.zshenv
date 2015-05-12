@@ -1,4 +1,5 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$PATH:/usr/local/var/mysql/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/usr/local/bin
 export EDITOR='vim'
