@@ -61,9 +61,9 @@ eval "$(rbenv init -)"
 
 # load zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-if [ -n "$TMUX" ]; then
-     alias pbcopy="reattach-to-user-namespace pbcopy"
-fi
+
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
+eval "$(rbenv init -)"
 
+alias vim="reattach-to-user-namespace vim"
