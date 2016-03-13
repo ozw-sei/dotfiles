@@ -58,12 +58,10 @@ alias reload="source ~/.zshrc;source ~/.zshenv"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
-# load zshrc
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+tmux
 
 eval "$(rbenv init -)"
 
 alias vim="reattach-to-user-namespace vim"
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
