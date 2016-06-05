@@ -20,8 +20,6 @@ do
     if [ -f "$_installed" -a -n "$_installed" ]; then
         echo "$_installed is exist"
         continue
-    else
-        echo "$_installed is not installed"
     fi
 
     brew install $package
