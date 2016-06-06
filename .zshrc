@@ -1,4 +1,3 @@
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -53,15 +52,29 @@ alias gg="git grep"
 alias t="git grep"
 alias rm="trash"
 alias reload="source ~/.zshrc;source ~/.zshenv"
+alias zshrc="vim ~/.zshrc"
+alias zshenv="vim ~/.zshenv"
+alias dotfiles="cd ~/dotfiles"
 
 # Env
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-tmux
 
-eval "$(rbenv init -)"
+# load zshrc
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+if [ -n "$TMUX" ]; then
+     alias pbcopy="reattach-to-user-namespace pbcopy"
+fi
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vim="reattach-to-user-namespace vim"
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
+export PATH="/usr/local/sbin:$PATH"
+
+function workspace {
+  cd "$( ls -1d $HOME/work/* | peco )"
+}
+
+function agvim {
+  vim $(ag $@ | peco --query  "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
