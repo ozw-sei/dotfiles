@@ -1,6 +1,6 @@
 #/bin/sh
 
-for item in ".zshrc" ".agignore" ".zshenv" ".gitconfig" ".tmux.conf" ".tmuxinator" ".vim"
+for item in ".zshrc" ".agignore" ".zshenv" ".gitconfig" ".tmux.conf" ".tmuxinator" ".vim" ".spacemacs"
 do
     if [ -L "$HOME/$item" ]; then
         echo "$item is exist"
