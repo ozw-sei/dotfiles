@@ -10,3 +10,11 @@ do
         echo 'set $item'
     fi
 done
+
+if [ -L "/usr/local/tools" ];then
+    echo '/usr/local/toolsが既に存在します'
+else
+    ln -s ~/dotfiles/tools /usr/local
+fi
+
+
