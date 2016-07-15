@@ -12,3 +12,5 @@ export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 export PATH="/usr/local/heroku/bin:$PATH"
+export GOPATH=$HOME/.go
+
