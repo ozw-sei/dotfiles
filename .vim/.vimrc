@@ -62,8 +62,8 @@ endif
 
 
 if has('gui_running')
-    set background=light
-    colorscheme monokai
+    set background=dark
+    colorscheme solarized
 else
     set background=dark
 
