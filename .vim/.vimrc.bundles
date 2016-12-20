@@ -22,7 +22,6 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'vim-scripts/Align'
-NeoBundle 'davidhalter/jedi-vim'
 
 "NeoBundle 'Flake8-vim'
 "NeoBundle 'hynek/vim-python-pep8-indent'
