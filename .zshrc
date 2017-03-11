@@ -81,6 +81,11 @@ function agvim {
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 eval $(/usr/libexec/path_helper -s)
 
 export PKG_CONFIG_PATH=/usr/local/Cellar/opencv3/3.2.0/lib/pkgconfig
+
+export symbolicatecrash="/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash"  
+
+export DEVELOPER_DIR=`xcode-select -p`  
