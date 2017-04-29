@@ -31,7 +31,6 @@ values."
      markdown
      org
      ansible
-     dockerfile
      django
      ruby-on-rails
      react
