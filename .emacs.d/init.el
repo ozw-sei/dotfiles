@@ -107,15 +107,12 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (global-set-key (kbd "C-o") 'ace-jump-word-mode)
 
-(global-set-key (kbd "C-@") 'dabbrev-expand)
+(global-set-key (kbd "C-;") 'dabbrev-expand)
 
 (setq skk-dcomp-activate t)
 
 (global-set-key (kbd "C-t") 'other-window)
 
-
-(require 'popwin)
-(popwin-mode 1)
 
 (global-set-key [f12] 'eval-buffer)
 
@@ -127,13 +124,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (global-set-key (kbd "C-M-D") 'dired-toggle)
 
-(ido-mode 1)
-(ido-everywhere 1)
-
 (global-set-key (kbd "C-x C-b") 'bs-show)
 
 (ffap-bindings)
-
 
 ;; 最近のファイル500個を保存する
 (setq recentf-max-saved-items 500)
@@ -171,3 +164,10 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 ;; helmでripgrep検索する
 (setq helm-ag-base-command "rg --vimgrep --no-heading")
+
+(global-set-key (kbd "C-u") 'helm-ag)
+
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+

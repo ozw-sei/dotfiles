@@ -34,3 +34,5 @@
 (depends-on "browse-kill-ring")
 (depends-on "zop-to-char")
 (depends-on "helm-ag")
+(depends-on "rust-mode")
+
