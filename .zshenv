@@ -9,6 +9,7 @@ export EDITOR='vim'
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cask/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 
 export PATH="/usr/local/heroku/bin:$PATH"

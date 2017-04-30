@@ -1,5 +1,6 @@
 (source gnu)
 (source melpa)
+(source org)
 
 (depends-on "bind-key")
 (depends-on "cask")
@@ -31,3 +32,5 @@
 (depends-on "recentf-ext")
 (depends-on "point-undo")
 (depends-on "browse-kill-ring")
+(depends-on "zop-to-char")
+(depends-on "helm-ag")
