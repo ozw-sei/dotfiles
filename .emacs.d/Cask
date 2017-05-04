@@ -45,4 +45,5 @@
 (depends-on "flycheck-pos-tip")
 (depends-on "elscreen")
 (depends-on "company-go")
+(depends-on "dockerfile-mode")
 

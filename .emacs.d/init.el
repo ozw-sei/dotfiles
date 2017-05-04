@@ -88,3 +88,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
            (setq indent-tabs-mode nil)    ; タブを利用
            (setq c-basic-offset 4)        ; tabサイズを4にする
            (setq tab-width 4)))
+
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
