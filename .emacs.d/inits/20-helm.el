@@ -6,8 +6,6 @@
 
 (global-set-key (kbd "M-z") 'zop-up-to-char)
 
-
-
 ;; backup を作らない
 (setq make-backup-files nil)
 

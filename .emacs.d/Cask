@@ -42,3 +42,7 @@
 (depends-on "helm-ghq")
 (depends-on "init-loader")
 (depends-on "quickrun")
+(depends-on "flycheck-pos-tip")
+(depends-on "elscreen")
+(depends-on "company-go")
+

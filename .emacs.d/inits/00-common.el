@@ -85,3 +85,15 @@
 ; C-; で補完
 (global-set-key (kbd "C-;") 'dabbrev-expand)
 
+;; 
+(global-auto-revert-mode 1)
+
+
+;; 大文字小文字を区別しない
+(setq completion-ignore-case t)
+
+
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+
