@@ -48,3 +48,4 @@
 (depends-on "company-go")
 (depends-on "dockerfile-mode")
 (depends-on "ensime")
+(depends-on "ng2-mode")
