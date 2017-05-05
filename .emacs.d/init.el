@@ -23,8 +23,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (set-exec-path-from-shell-PATH)
 
-(load-theme 'solarized t)
-
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
@@ -32,6 +30,8 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
+
+(load-theme 'tango)
 
 ;; elscreen
 ;; プレフィクスキーはC-z
@@ -73,7 +73,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (add-hook 'python-mode-hook 'turn-on-flycheck-mode)
 
 (require 'ng2-mode)
-
 
 ; 必要なパッケージのロード
 (require 'go-mode)
