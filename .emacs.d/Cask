@@ -2,6 +2,7 @@
 (source melpa)
 (source org)
 
+
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
@@ -46,4 +47,4 @@
 (depends-on "elscreen")
 (depends-on "company-go")
 (depends-on "dockerfile-mode")
-
+(depends-on "ensime")
