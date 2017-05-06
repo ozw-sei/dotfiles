@@ -95,3 +95,8 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
  ;; ビープ音禁止
  (setq ring-bell-function 'ignore)
+
+(setq auto-complete-mode 1)
+
+(require 'disable-mouse)
+(global-disable-mouse-mode)
