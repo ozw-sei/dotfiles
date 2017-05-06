@@ -33,3 +33,11 @@ zsh/maximumx-awesome
 .DS_Store
 
 .rbenv
+
+.emacs.d/.python-environments/
+.emacs.d/recentf
+.emacs.d/places
+.emacs.d/history
+.emacs.d/v/
+.emacs.d/#*
+.emacs.d/.#*
