@@ -31,7 +31,7 @@
 (depends-on "zop-to-char")
 (depends-on "helm-ag")
 (depends-on "rust-mode")
-(depends-on "auto-complete")
+(depends-on "company")
 (depends-on "undo-tree")
 (depends-on "undohist")
 (depends-on "helm-ls-git")

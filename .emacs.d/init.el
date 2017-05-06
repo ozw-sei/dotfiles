@@ -96,7 +96,29 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
  ;; ビープ音禁止
  (setq ring-bell-function 'ignore)
 
-(setq auto-complete-mode 1)
-
 (require 'disable-mouse)
 (global-disable-mouse-mode)
+
+
+;; C-n, C-pで補完候補を次/前の候補を選択
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-search-map (kbd "C-n") 'company-select-next)
+(define-key company-search-map (kbd "C-p") 'company-select-previous)
+
+;; C-sで絞り込む
+(define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+
+;; TABで候補を設定
+(define-key company-active-map (kbd "C-i") 'company-complete-selection)
+
+;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
+(define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'jedi-core)
+(setq jedi:complete-on-dot t)
+(setq jedi:use-shortcuts t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(add-to-list 'company-backends 'company-jedi) 
