@@ -50,4 +50,3 @@
 (depends-on "ensime")
 (depends-on "ng2-mode")
 (depends-on "disable-mouse")
-

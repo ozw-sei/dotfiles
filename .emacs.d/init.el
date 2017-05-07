@@ -27,6 +27,8 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
 
+(add-to-list 'load-path "~/.emacs.d/elisp")
+
 
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
@@ -122,3 +124,10 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (setq jedi:use-shortcuts t)
 (add-hook 'python-mode-hook 'jedi:setup)
 (add-to-list 'company-backends 'company-jedi) 
+
+;; 自動改行しない
+(setq auto-fill-mode 0)
+
+;; 鬼軍曹
+(require 'drill-instructor)
+(setq drill-instructor-global t)
