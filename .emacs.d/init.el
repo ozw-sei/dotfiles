@@ -12,17 +12,6 @@
 (require 'cask "$HOME/.cask/cask.el")
 (cask-initialize)
 
-(defun set-exec-path-from-shell-PATH ()
-  "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell.
-
-This is particularly useful under Mac OSX, where GUI apps are not started from a shell."
-  (interactive)
-  (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(set-exec-path-from-shell-PATH)
-
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
@@ -115,7 +104,7 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (define-key company-active-map (kbd "C-i") 'company-complete-selection)
 
 ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
-(define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+(define-key company-mode-map (kbd "C-@") 'company-complete)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -131,3 +120,18 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 ;; 鬼軍曹
 (require 'drill-instructor)
 (setq drill-instructor-global t)
+
+(require 'typescript-mode)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+
+(require 'tide)
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-setup)
+            (flycheck-mode t)
+            (setq flycheck-check-syntax-automatically '(save mode-enabled))
+            (eldoc-mode t)
+            (company-mode-on)))
+
+(exec-path-from-shell-initialize)
+
