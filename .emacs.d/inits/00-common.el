@@ -70,29 +70,26 @@
 
 (global-set-key (kbd "C-t") 'other-window)
 
+(global-set-key (kbd "C-M-i") 'switch-to-next-buffer)
+(global-set-key (kbd "C-M-o") 'switch-to-prev-buffer)
+
 
 (global-set-key [f12] 'eval-buffer)
 
 
 ;; 最近のファイル500個を保存する
 (setq recentf-max-saved-items 500)
+
 ;; 最近使ったファイルに加えないファイルを
 ;; 正規表現で指定する
 (setq recentf-exclude
       '("/TAGS$" "/var/tmp/"))
-
-
-; C-; で補完
-(global-set-key (kbd "C-;") 'dabbrev-expand)
-
 ;; 
 (global-auto-revert-mode 1)
 
 
 ;; 大文字小文字を区別しない
 (setq completion-ignore-case t)
-
-
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
