@@ -104,7 +104,7 @@
 (define-key company-active-map (kbd "C-i") 'company-complete-selection)
 
 ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
-(define-key company-mode-map (kbd "C-;") 'company-complete)
+(define-key company-mode-map (kbd "C-:") 'company-complete)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -135,3 +135,10 @@
 
 (exec-path-from-shell-initialize)
 
+
+
+(setq howm-menu-lang 'ja)
+(require 'howm-mode)
+
+(global-set-key "C-c,," 'howm-menu)
+(autoload 'howm-menu "howm-mode" "Hitori Otegaru Wiki Modoki" t)
