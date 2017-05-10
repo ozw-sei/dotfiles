@@ -104,7 +104,7 @@
 (define-key company-active-map (kbd "C-i") 'company-complete-selection)
 
 ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
-(define-key company-mode-map (kbd "C-@") 'company-complete)
+(define-key company-mode-map (kbd "C-;") 'company-complete)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -112,7 +112,7 @@
 (setq jedi:complete-on-dot t)
 (setq jedi:use-shortcuts t)
 (add-hook 'python-mode-hook 'jedi:setup)
-(add-to-list 'company-backends 'company-jedi) 
+(add-to-list 'company-backends 'company-jedi)
 
 ;; 自動改行しない
 (setq auto-fill-mode 0)
