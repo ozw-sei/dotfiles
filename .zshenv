@@ -19,3 +19,11 @@ typeset -U PATH
 
 
 export PGDATA=/usr/local/var/postgres
+
+case ${OSTYPE} in 
+    darwin*)
+        ;;
+    linux*)
+        ;;
+esac
+

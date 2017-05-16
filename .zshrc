@@ -70,3 +70,13 @@ export VISUAL="vim"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+function peco-emacs(){
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    
+    if [ -n "$seleced_dir" ]; then
+        BUFER="cd ${selected_dir}"
+    fi
+}
+
+zle -N peco-emacs
+
