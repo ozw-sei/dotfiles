@@ -59,25 +59,14 @@ alias dotfiles="cd ~/dotfiles"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
-# load zshrc
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-if [ -n "$TMUX" ]; then
-     alias pbcopy="reattach-to-user-namespace pbcopy"
-fi
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/local/sbin:$PATH"
 
-function workspace {
-  cd "$( ls -1d $HOME/work/* | peco )"
-}
-
-function agvim {
-  vim $(ag $@ | peco --query  "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+export VISUAL="vim"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
