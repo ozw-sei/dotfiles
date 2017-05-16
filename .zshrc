@@ -81,3 +81,14 @@ function agvim {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+
+function peco-emacs(){
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    
+    if [ -n "$seleced_dir" ]; then
+        BUFER="cd ${selected_dir}"
+    fi
+}
+
+zle -N peco-emacs
+
