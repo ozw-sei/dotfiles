@@ -7,3 +7,6 @@
 
 [mergetool]
 	keepBackup = true
+
+[ghq "import"]
+	starred = github-list-starred
