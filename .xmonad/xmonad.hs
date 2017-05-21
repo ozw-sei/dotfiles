@@ -20,7 +20,7 @@ floatingClasses =
 -- Check https://wiki.haskell.org/Xmonad/Using_xmonad_in_XFCE before touching!
 main = xmonad xfceConfig
     { modMask            = mod4Mask
-    , terminal           = "xfce4-terminal"
+    , terminal           = "sakura"
     , focusFollowsMouse  = True
     , clickJustFocuses   = False
     , normalBorderColor  = "#dddddd"
@@ -41,7 +41,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 --    , ((modm,               xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- launch a terminal
-    , ((modm .|. shiftMask, xK_Return), spawn "xfce4-terminal")
+    , ((modm .|. shiftMask, xK_Return), spawn "sakura")
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
