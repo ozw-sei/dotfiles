@@ -10,3 +10,5 @@
 
 [ghq "import"]
 	starred = github-list-starred
+[core]
+	editor = emacsclient

@@ -50,10 +50,11 @@ alias gd="git diff"
 alias gss="git status --short"
 alias gg="git grep"
 alias t="git grep"
-alias reload="source ~/.zshrc;source ~/.zshenv"
+alias reload="source ~/.zshrc"
 alias zshrc="vim ~/.zshrc"
 alias zshenv="vim ~/.zshenv"
 alias dotfiles="cd ~/dotfiles"
+alias e="emacsclient"
 
 # Env
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -111,9 +112,7 @@ typeset -U PATH
 
 export PGDATA=/usr/local/var/postgres
 
-
-
-
+zle -N peco-src
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
@@ -122,6 +121,6 @@ function peco-src () {
   fi
   zle clear-screen
 }
-zle -N peco-src
 bindkey '^]' peco-src
 
+eval "$(direnv hook zsh)"
