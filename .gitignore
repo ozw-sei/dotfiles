@@ -41,3 +41,5 @@ zsh/maximumx-awesome
 .emacs.d/v/
 .emacs.d/#*
 .emacs.d/.#*
+
+.vimperator/info/
