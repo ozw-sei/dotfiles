@@ -60,15 +60,24 @@ alias e="emacsclient"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+
+# load zshrc
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+if [ -n "$TMUX" ]; then
+     alias pbcopy="reattach-to-user-namespace pbcopy"
+fi
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/local/sbin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+function workspace {
+  cd "$( ls -1d $HOME/work/* | peco )"
+}
 
-export VISUAL="vim"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+function agvim {
+  vim $(ag $@ | peco --query  "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
 
 function ghq-cd(){
     local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
@@ -76,19 +85,7 @@ function ghq-cd(){
         BUFER="cd ${selected_dir}"
     fi
 }
-
 zle -N ghq-cd
-
-
-function peco-emacs(){
-    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-    
-    if [ -n "$seleced_dir" ]; then
-        BUFER="emacs ${selected_dir}"
-    fi
-}
-
-zle -N peco-emacs
 
 export HOMEBREW_GITHUB_API_TOKEN=2a94d1a1cd5efabd02d0a9a12559e1d002714311
 
