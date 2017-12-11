@@ -96,7 +96,7 @@ export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin
-export EDITOR='emacsclient'
+export EDITOR='vim'
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cask/bin
@@ -121,3 +121,5 @@ function peco-src () {
 bindkey '^]' peco-src
 
 eval "$(direnv hook zsh)"
+
+export LANG=ja_JP.UTF-8
