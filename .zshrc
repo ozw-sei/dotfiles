@@ -1,13 +1,3 @@
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-source $ZSH/oh-my-zsh.sh
-
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt correct
@@ -67,7 +57,6 @@ if [ -n "$TMUX" ]; then
      alias pbcopy="reattach-to-user-namespace pbcopy"
 fi
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
-alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/local/sbin:$PATH"
 
@@ -123,3 +112,19 @@ bindkey '^]' peco-src
 eval "$(direnv hook zsh)"
 
 export LANG=ja_JP.UTF-8
+
+# terminal color
+export CLICOLOR=1
+
+eval "$(ndenv init -)"
+
+
+# prompt
+export GIT_PS1_SHOWCOLORHINTS=1
+git_prompt_sh=/usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -e $git_prompt_sh ]; then
+    source $git_prompt_sh
+    precmd () { __git_ps1 "%F{cyan}%c%f" " $ " " (%s)" }
+else
+    PS1='%F{cyan}%c%f \$ '
+fi
