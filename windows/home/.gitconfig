@@ -1,0 +1,14 @@
+[user]
+	name = ozawaseijiro
+	email = seijiro4751@gmail.com
+
+[include]
+  path  =  ~/dotfiles/base_gitconfig
+
+[mergetool]
+	keepBackup = true
+
+[ghq "import"]
+	starred = github-list-starred
+[core]
+	editor = emacsclient
