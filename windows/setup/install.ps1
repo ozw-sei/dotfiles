@@ -1,5 +1,5 @@
-$account = "jayharris"
-$repo    = "dotfiles-windows"
+$account = "ozw-sei"
+$repo    = "dotfiles"
 $branch  = "master"
 
 $dotfilesTempDir = Join-Path $env:TEMP "dotfiles"
