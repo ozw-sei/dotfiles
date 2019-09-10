@@ -47,6 +47,9 @@ alias dotfiles="cd ~/dotfiles"
 alias e="emacsclient"
 
 # Env
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
@@ -56,7 +59,6 @@ eval "$(rbenv init -)"
 if [ -n "$TMUX" ]; then
      alias pbcopy="reattach-to-user-namespace pbcopy"
 fi
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
 export PATH="/usr/local/sbin:$PATH"
 
@@ -84,6 +86,8 @@ export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/opt/local/bin
+
 export PATH=$PATH:~/bin
 export EDITOR='vim'
 export PATH=$PATH:$GOPATH/bin
@@ -116,7 +120,7 @@ export LANG=ja_JP.UTF-8
 # terminal color
 export CLICOLOR=1
 
-eval "$(ndenv init -)"
+eval "$(nodenv init -)"
 
 
 # prompt
@@ -128,3 +132,5 @@ if [ -e $git_prompt_sh ]; then
 else
     PS1='%F{cyan}%c%f \$ '
 fi
+
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
