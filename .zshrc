@@ -45,6 +45,7 @@ alias zshrc="vim ~/.zshrc"
 alias zshenv="vim ~/.zshenv"
 alias dotfiles="cd ~/dotfiles"
 alias e='emacsclient -nw -a ""'
+alias ekill='emacsclient -e "(kill-emacs)'
 
 # Env
 export PATH="$HOME/.nodenv/bin:$PATH"
