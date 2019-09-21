@@ -2,9 +2,6 @@
 	name = ozawaseijiro
 	email = seijiro4751@gmail.com
 
-[include]
-  path  =  ~/dotfiles/base_gitconfig
-
 [mergetool]
 	keepBackup = true
 

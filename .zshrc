@@ -44,7 +44,7 @@ alias reload="source ~/.zshrc"
 alias zshrc="vim ~/.zshrc"
 alias zshenv="vim ~/.zshenv"
 alias dotfiles="cd ~/dotfiles"
-alias e="emacsclient"
+alias e='emacsclient -nw -a ""'
 
 # Env
 export PATH="$HOME/.nodenv/bin:$PATH"
@@ -53,7 +53,6 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
 # load zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 if [ -n "$TMUX" ]; then
@@ -61,22 +60,6 @@ if [ -n "$TMUX" ]; then
 fi
 
 export PATH="/usr/local/sbin:$PATH"
-
-function workspace {
-  cd "$( ls -1d $HOME/work/* | peco )"
-}
-
-function agvim {
-  vim $(ag $@ | peco --query  "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
-function ghq-cd(){
-    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-    if [ -n "$seleced_dir" ]; then
-        BUFER="cd ${selected_dir}"
-    fi
-}
-zle -N ghq-cd
 
 export HOMEBREW_GITHUB_API_TOKEN=2a94d1a1cd5efabd02d0a9a12559e1d002714311
 
@@ -87,14 +70,11 @@ export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/opt/local/bin/
-
 export PATH=$PATH:~/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cask/bin
 export PATH=$PATH:$HOME/.cargo/bin
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 typeset -U PATH
 

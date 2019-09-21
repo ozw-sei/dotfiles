@@ -1,7 +1,7 @@
 set main-view = id date author commit-title:graph=yes,refs=yes
 
 # 強制的に横分割
-set vertical-split = no
+set vertical-split = n
 
 # 横で割ったときの高さ
 set split-view-height = 80%

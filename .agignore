@@ -16,6 +16,7 @@ jquery-*.js
 *.min
 node_modules
 .venv
+venv/
 *.egg
 *.egg-info
 *.zip
