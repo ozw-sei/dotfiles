@@ -76,8 +76,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cask/bin
 export PATH=$PATH:$HOME/.cargo/bin
-
-typeset -U PATH
+export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 
 export PGDATA=/usr/local/var/postgres
 
