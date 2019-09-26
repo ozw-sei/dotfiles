@@ -1,14 +1,16 @@
 #/bin/sh
 
-for item in ".zshrc" ".agignore" ".zshenv" ".gitconfig" ".tmux.conf" ".tmuxinator" ".vim" ".spacemacs"
+cd $HOME/dotfiles
+
+for item in `ls -al | awk '{print $9}' | grep '^\...' | grep -v '.git$'` | grep -v '\#'
+
 do
     if [ -L "$HOME/$item" ]; then
-        echo "$item is exist"
-        :
-    else
-        ln -s "`pwd`/$item" "$HOME"
-        echo 'set $item'
+        mv "${HOME}/${item}" "${HOME}/${item}.org"
     fi
+
+    ln -s "`pwd`/$item" "$HOME"
+    echo "set ${item}"
 done
 
 if [ -L "/usr/local/tools" ];then
