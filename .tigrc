@@ -1,10 +1,14 @@
 set main-view = id date author commit-title:graph=yes,refs=yes
 
 # 強制的に横分割
-set vertical-split = n
+set vertical-split = no
 
 # 横で割ったときの高さ
 set split-view-height = 80%
+
+set ignore-case = true
+
+set diff-options = -m --first-parent
 
 # 差分の前後の標示行数
 set diff-context = 6
