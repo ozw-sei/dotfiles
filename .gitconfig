@@ -8,4 +8,6 @@
 [ghq "import"]
 	starred = github-list-starred
 [core]
-	editor = emacsclient
+	editor = vim
+[ghq]
+	root = /Users/ozw-sei/.go/src
