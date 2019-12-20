@@ -64,7 +64,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 export HOMEBREW_GITHUB_API_TOKEN=2a94d1a1cd5efabd02d0a9a12559e1d002714311
 
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/go
 export PATH=$PATH:/usr/bin
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
@@ -111,3 +111,5 @@ else
 fi
 
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && tmux source ~/.tmux.conf
+
+export LANG=ja_JP.UTF-8

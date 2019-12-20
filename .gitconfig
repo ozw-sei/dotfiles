@@ -5,9 +5,9 @@
 [mergetool]
 	keepBackup = true
 
-[ghq "import"]
-	starred = github-list-starred
 [core]
 	editor = vim
 [ghq]
-	root = /Users/ozw-sei/.go/src
+	root = /Users/ozw-sei/go/src
+[github]
+	user = ozw-sei
