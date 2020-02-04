@@ -18,8 +18,8 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 autoload -U compinit
 compinit
@@ -113,3 +113,14 @@ fi
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && tmux source ~/.tmux.conf
 
 export LANG=ja_JP.UTF-8
+
+source ~/dotfiles/antigen.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+antigen bundle zsh-z
+
+antigen apply
