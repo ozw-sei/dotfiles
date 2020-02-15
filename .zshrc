@@ -63,8 +63,9 @@ fi
 export PATH="/usr/local/sbin:$PATH"
 
 export HOMEBREW_GITHUB_API_TOKEN=2a94d1a1cd5efabd02d0a9a12559e1d002714311
+export DICPATH=$HOME/.emacs.d/dict
+export DICTIONARY="en_US"
 
-export GOPATH=$HOME/go
 export PATH=$PATH:/usr/bin
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
@@ -88,7 +89,7 @@ function peco-src () {
   fi
   zle clear-screen
 }
-bindkey '^\' peco-src
+bindkey '^]' peco-src
 
 eval "$(direnv hook zsh)"
 
