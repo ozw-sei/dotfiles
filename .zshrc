@@ -89,7 +89,7 @@ function peco-src () {
   fi
   zle clear-screen
 }
-bindkey '^]' peco-src
+bindkey '^\' peco-src
 
 eval "$(direnv hook zsh)"
 
