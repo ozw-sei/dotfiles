@@ -54,6 +54,9 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+
 # load zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 if [ -n "$TMUX" ]; then
