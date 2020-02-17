@@ -1,8 +1,8 @@
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt correct
-setopt list_packed 
-setopt nolistbeep 
+setopt list_packed
+setopt nolistbeep
 setopt EXTENDED_HISTORY
 setopt HIST_EXPAND
 setopt HIST_IGNORE_ALL_DUPS
