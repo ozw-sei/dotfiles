@@ -358,6 +358,7 @@ key_bindings:
   - { key: F10,             mods: Control,                        chars: "\x1b[21;5~"                  }
   - { key: F11,             mods: Control,                        chars: "\x1b[23;5~"                  }
   - { key: F12,             mods: Control,                        chars: "\x1b[24;5~"                  }
+  - { key: Q,               mods: Control,                        chars: "\x11"                        }
   - { key: F1,              mods: Alt,                            chars: "\x1b[1;6P"                   }
   - { key: F2,              mods: Alt,                            chars: "\x1b[1;6Q"                   }
   - { key: F3,              mods: Alt,                            chars: "\x1b[1;6R"                   }
