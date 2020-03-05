@@ -84,16 +84,25 @@ export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 
 export PGDATA=/usr/local/var/postgres
 
-zle -N peco-src
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
+function ghq-fzf() {
+local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+if [ -n "$src" ]; then
+	BUFFER="cd $(ghq root)/$src"
+	zle accept-line
+fi
+zle -R -c
 }
-bindkey '^\' peco-src
+zle -N ghq-fzf
+bindkey '^\' ghq-fzf
+
+function gh-fzf() {
+local src=$(curl 'https://api.github.com/users/ozw-sei/repos?per_page=1000&page=1' | jq --stream -r 'select(.[0][1] == "full_name") | .[1]' | fzf)
+if [ -n "$src" ]; then
+	ghq get github.com/$src
+fi
+}
+zle -N gh-fzf
+bindkey "^'" gh-fzf
 
 eval "$(direnv hook zsh)"
 
