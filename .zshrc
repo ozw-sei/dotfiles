@@ -176,3 +176,5 @@ source ~/dotfiles/antigen.zsh
 antigen init .antigenrc
 
 antigen apply
+
+alias pbcopy='xsel --clipboard --input'
