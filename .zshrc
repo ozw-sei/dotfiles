@@ -48,13 +48,8 @@ alias e='emacsclient -nw -a ""'
 alias ekill='emacsclient -e "(kill-emacs)'
 
 # Env
-export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
-
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
-export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
 # load zshrc
@@ -63,61 +58,46 @@ if [ -n "$TMUX" ]; then
      alias pbcopy="reattach-to-user-namespace pbcopy"
 fi
 
-export PATH="/usr/local/sbin:$PATH"
-
-export HOMEBREW_GITHUB_API_TOKEN=2a94d1a1cd5efabd02d0a9a12559e1d002714311
-export DICPATH=$HOME/.emacs.d/dict
-export GOPATH=$HOME/go
-export DICTIONARY="en_US"
-
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/usr/local/mysql/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:~/bin
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/.rbenv/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.cask/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/Commands
-
-export PGDATA=/usr/local/var/postgres
-
-zle -N peco-src
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
+function ghq-fzf() {
+local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+if [ -n "$src" ]; then
+	BUFFER="cd $(ghq root)/$src"
+	zle accept-line
+fi
+zle -R -c
 }
-bindkey '^\' peco-src
+zle -N ghq-fzf
+bindkey '^\' ghq-fzf
+
+function gh-fzf() {
+local src=$(curl 'https://api.github.com/users/ozw-sei/repos?per_page=1000&page=1' | jq --stream -r 'select(.[0][1] == "full_name") | .[1]' | fzf)
+if [ -n "$src" ]; then
+	ghq get github.com/$src
+fi
+}
+zle -N gh-fzf
+bindkey "^'" gh-fzf
 
 eval "$(direnv hook zsh)"
 
-export LANG=ja_JP.UTF-8
 
 # terminal color
-export CLICOLOR=1
+
 
 eval "$(nodenv init -)"
 
 
 # prompt
-export GIT_PS1_SHOWCOLORHINTS=1
+
 git_prompt_sh=/usr/local/etc/bash_completion.d/git-prompt.sh
 if [ -e $git_prompt_sh ]; then
-    source $git_prompt_sh
+p    source $git_prompt_sh
     precmd () { __git_ps1 "%F{cyan}%c%f" " $ " " (%s)" }
 else
     PS1='%F{cyan}%c%f \$ '
 fi
 
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && tmux source ~/.tmux.conf
-
-export LANG=ja_JP.UTF-8
 
 
 ## https://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
