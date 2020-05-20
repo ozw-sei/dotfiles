@@ -8,6 +8,7 @@ setopt HIST_EXPAND
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt transient_rprompt
+source   ~/.zshenv
 
 bindkey -e
 
@@ -156,3 +157,6 @@ source ~/dotfiles/antigen.zsh
 antigen init .antigenrc
 
 antigen apply
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
