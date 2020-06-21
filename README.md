@@ -9,3 +9,4 @@ ghq
 zsh
 tmux
 
+https://qiita.com/ono_matope/items/e437a35c3921ad35d109
