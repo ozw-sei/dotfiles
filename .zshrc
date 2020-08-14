@@ -12,6 +12,12 @@ source   ~/.zshenv
 
 bindkey -e
 
+autoload -Uz compinit
+compinit
+
+typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
+
+
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
