@@ -17,7 +17,6 @@ compinit
 
 typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
 
-
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -98,7 +97,7 @@ eval "$(nodenv init -)"
 
 git_prompt_sh=/usr/local/etc/bash_completion.d/git-prompt.sh
 if [ -e $git_prompt_sh ]; then
-p    source $git_prompt_sh
+    source $git_prompt_sh
     precmd () { __git_ps1 "%F{cyan}%c%f" " $ " " (%s)" }
 else
     PS1='%F{cyan}%c%f \$ '
@@ -160,10 +159,15 @@ setopt prompt_subst
 RPROMPT='`rprompt-git-current-branch`'
 
 source ~/dotfiles/antigen.zsh
-antigen init .antigenrc
+antigen init $HOME/.antigenrc
 
 antigen apply
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 alias pbcopy='xsel --clipboard --input'
+
+fpath=(~/dotfiles/completion $fpath)
+
+autoload -U compinit
+compinit -u
