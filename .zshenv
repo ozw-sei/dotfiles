@@ -6,6 +6,7 @@ export HOMEBREW_GITHUB_API_TOKEN=2a94d1a1cd5efabd02d0a9a12559e1d002714311
 export DICPATH=$HOME/.emacs.d/dict
 export GOPATH=$HOME/go
 export DICTIONARY="en_US"
+export PIPENV_VENV_IN_PROJECT=1
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.nodenv/bin:$PATH"
