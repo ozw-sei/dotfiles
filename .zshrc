@@ -49,7 +49,6 @@ alias t="git grep"
 alias reload="source ~/.zshrc"
 alias zshrc="vim ~/.zshrc"
 alias dotfiles="cd ~/dotfiles"
-alias emacs="emacs -nw"
 alias e='emacsclient -nw -a ""'
 alias ekill='emacsclient -e "(kill-emacs)'
 
