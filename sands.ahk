@@ -1,4 +1,4 @@
-*Space::
+$Space::
   SendInput {RShift Down}
   If SandS_SpaceDown = 1
   {
@@ -13,7 +13,7 @@
   Return
 
 
-*Space Up:: 
+$Space Up:: 
   SendInput {RShift Up}
   SandS_SpaceDown := 0
   If SandS_AnyKeyPressed = 0
