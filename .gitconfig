@@ -8,7 +8,12 @@
 [core]
 	editor = vim
 	autocrlf = input
+	pager = less -cm
+        quotepath = false
+
 [ghq]
-	root = /Users/ozw-sei/go/src
+	root = /home/ozw-sei/go/src
 [github]
 	user = ozw-sei
+[gui]
+	encoding = utf-8

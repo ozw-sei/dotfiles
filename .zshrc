@@ -179,3 +179,20 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
+export LC_ALL="en_US"
+export LANG="en_US"
+export LANGUAGE="en_NZ"
+export C_CTYPE="en_US"
+export LC_NUMERIC=
+export LC_TIME=en"en_US"
+
+export LANG=ja_JP.UTF-8
+
+. $HOME/.asdf/asdf.sh
+
+export LESSCHARSET="utf-8"
+

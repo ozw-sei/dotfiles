@@ -21,6 +21,7 @@ export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cask/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 export PATH=$PATH:/usr/local/opt/openjdk/bin
 export PATH="$HOME/bin:$PATH"
