@@ -102,8 +102,6 @@ else
     PS1='%F{cyan}%c%f \$ '
 fi
 
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && tmux source ~/.tmux.conf
-
 
 ## https://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
 # ここはプロンプトの設定なので今回の設定とは関係ありません
@@ -195,4 +193,6 @@ export LANG=ja_JP.UTF-8
 . $HOME/.asdf/asdf.sh
 
 export LESSCHARSET="utf-8"
+
+export TERM=xterm-256color
 
