@@ -104,7 +104,6 @@ fi
 
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux source ~/.tmux.conf
 
-
 ## https://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
 # ここはプロンプトの設定なので今回の設定とは関係ありません
 if [ $UID -eq 0 ];then
@@ -183,3 +182,4 @@ fbr() {
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
     alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
 fi
+
