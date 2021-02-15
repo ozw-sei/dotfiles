@@ -72,7 +72,7 @@ fi
 zle -R -c
 }
 zle -N ghq-fzf
-bindkey '^\' ghq-fzf
+bindkey '^;' ghq-fzf
 
 function gh-fzf() {
 local src=$(curl 'https://api.github.com/users/ozw-sei/repos?per_page=1000&page=1' | jq --stream -r 'select(.[0][1] == "full_name") | .[1]' | fzf)
@@ -102,7 +102,7 @@ else
     PS1='%F{cyan}%c%f \$ '
 fi
 
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux && tmux source ~/.tmux.conf
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux source ~/.tmux.conf
 
 
 ## https://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
@@ -179,3 +179,7 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
