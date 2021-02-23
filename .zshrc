@@ -72,7 +72,7 @@ fi
 zle -R -c
 }
 zle -N ghq-fzf
-bindkey '^\' ghq-fzf
+bindkey '^;' ghq-fzf
 
 function gh-fzf() {
 local src=$(curl 'https://api.github.com/users/ozw-sei/repos?per_page=1000&page=1' | jq --stream -r 'select(.[0][1] == "full_name") | .[1]' | fzf)
@@ -102,6 +102,7 @@ else
     PS1='%F{cyan}%c%f \$ '
 fi
 
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux source ~/.tmux.conf
 
 ## https://qiita.com/nishina555/items/f4f1ddc6ed7b0b296825
 # ここはプロンプトの設定なので今回の設定とは関係ありません
@@ -178,21 +179,7 @@ fbr() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-
-export LC_ALL="en_US"
-export LANG="en_US"
-export LANGUAGE="en_NZ"
-export C_CTYPE="en_US"
-export LC_NUMERIC=
-export LC_TIME=en"en_US"
-
-export LANG=ja_JP.UTF-8
-
-. $HOME/.asdf/asdf.sh
-
-export LESSCHARSET="utf-8"
-
-export TERM=xterm-256color
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
 

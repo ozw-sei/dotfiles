@@ -10,6 +10,6 @@
 	<string>/Users/seijiro-ozawa/dotfiles/lanuch-freedom-ifneeded.sh</string>
     </array>
     <key>StartInterval</key>
-    <integer>10</integer>
+    <integer>5</integer>
 </dict>
 </plist>
