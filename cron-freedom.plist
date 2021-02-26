@@ -8,6 +8,7 @@
     <array>
         <string>sh</string>
 	<string>/Users/seijiro-ozawa/dotfiles/lanuch-freedom-ifneeded.sh</string>
+	<string>/usr/local/bin/lanuch-freedom-ifneeded.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>5</integer>
