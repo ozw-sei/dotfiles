@@ -1,4 +1,5 @@
 export CLICOLOR=1
+export PIPENV_VENV_IN_PROJECT=1
 export GIT_PS1_SHOWCOLORHINTS=1
 export LANG=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
