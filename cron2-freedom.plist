@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>sh</string>
-	<string>/Users/seijiro-ozawa/dotfiles/lanuch-freedom-ifneeded.sh</string>
+	<string>lanuch-freedom-ifneeded.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>5</integer>
