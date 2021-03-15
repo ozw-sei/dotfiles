@@ -10,5 +10,5 @@ do
     echo "set ${item}"
 done
 
-
+ln -sf $HOME/dotfiles/powerline.conf $HOME
 
