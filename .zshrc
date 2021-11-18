@@ -1,4 +1,6 @@
 setopt AUTO_CD
+
+alias emacs="/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw"
 setopt AUTO_PUSHD
 setopt correct
 setopt list_packed
@@ -155,11 +157,6 @@ setopt prompt_subst
 
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 RPROMPT='`rprompt-git-current-branch`'
-
-source ~/dotfiles/antigen.zsh
-antigen init $HOME/.antigenrc
-
-antigen apply
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
