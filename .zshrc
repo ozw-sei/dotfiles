@@ -160,7 +160,9 @@ RPROMPT='`rprompt-git-current-branch`'
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
-alias pbcopy='xsel --clipboard --input'
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	alias pbcopy='xsel --clipboard --input'
+fi
 
 fpath=(~/dotfiles/completion $fpath)
 
