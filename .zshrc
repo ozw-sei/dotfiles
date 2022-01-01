@@ -161,7 +161,11 @@ RPROMPT='`rprompt-git-current-branch`'
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	alias pbcopy='xsel --clipboard --input'
+    alias pbcopy='xsel --clipboard --input'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ -n "$TMUX" ]; then
+        alias pbcopy="reattach-to-user-namespace pbcopy"
+    fi
 fi
 
 fpath=(~/dotfiles/completion $fpath)
