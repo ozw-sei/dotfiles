@@ -29,3 +29,5 @@ export PATH="$HOME/bin:$PATH"
 export PGDATA=/usr/local/var/postgres
 export TERM=xterm-256color
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
