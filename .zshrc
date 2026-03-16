@@ -62,6 +62,9 @@ command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 # gh
 command -v gh &>/dev/null && eval "$(gh completion -s zsh)"
 
+# Claude Code
+command -v claude &>/dev/null && eval "$(claude completions zsh)"
+
 # --- ghq + fzf ---
 if command -v ghq &>/dev/null && command -v fzf &>/dev/null; then
     function ghq-fzf() {
