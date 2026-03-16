@@ -1,13 +1,32 @@
-#/bin/sh
+#!/bin/sh
+set -e
 
-for item in `ls -al | awk '{print $9}' | grep '^\...' | grep -v '.git$' | grep -v '\#' | grep -v '\.swp$' | grep -v '^.env'`
-do
-    if [ -L "$HOME/$item" ]; then
-        mv "${HOME}/${item}" "${HOME}/${item}.org"
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Files/dirs to symlink to $HOME
+targets=(
+    .zshrc
+    .zshenv
+    .gitconfig
+    .editorconfig
+    .tmux.conf
+    .tmux
+    .tigrc
+    .ignore
+    .peco
+)
+
+for item in "${targets[@]}"; do
+    src="$DOTFILES_DIR/$item"
+    dst="$HOME/$item"
+
+    if [ -e "$dst" ] && [ ! -L "$dst" ]; then
+        echo "Backing up $dst -> ${dst}.bak"
+        mv "$dst" "${dst}.bak"
     fi
 
-    ln -s "`pwd`/$item" "$HOME"
-    echo "set ${item}"
+    ln -sfn "$src" "$dst"
+    echo "Linked $item"
 done
 
-ln -sf $HOME/dotfiles/powerline.conf $HOME
+echo "Done!"

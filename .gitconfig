@@ -9,11 +9,13 @@
 	editor = vim
 	autocrlf = input
 	pager = less -cm
-        quotepath = false
+	quotepath = false
 
 [ghq]
-	root = /home/ozw-sei/go/src
+	root = ~/src
+
 [github]
 	user = ozw-sei
+
 [gui]
 	encoding = utf-8
